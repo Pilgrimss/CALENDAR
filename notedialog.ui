@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>noteDialog</class>
+ <widget class="QDialog" name="noteDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>626</width>
+    <height>424</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>371</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>GroupBox</string>
+   </property>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>62</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>Time</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="repeatComboBox">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>120</y>
+      <width>121</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <item>
+     <property name="text">
+      <string>OnlyOnce</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EveryDay</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EveyWeek</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EveryMonth</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="endComboBox">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>60</y>
+      <width>121</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>00:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>01:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>02:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>03:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>04:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>05:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>06:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>07:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>08:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>09:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>11:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>12:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>13:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>14:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>15:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>16:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>17:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>18:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>19:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>20:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>21:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>22:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>23:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>24:00</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QComboBox" name="startComboBox">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>60</y>
+      <width>121</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>00:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>01:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>02:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>03:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>04:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>05:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>06:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>07:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>08:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>09:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>10:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>11:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>12:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>13:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>14:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>15:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>16:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>17:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>18:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>19:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>20:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>21:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>22:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>23:00</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>24:00</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLineEdit" name="eventLineEdit">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>30</y>
+      <width>261</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>91</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>Locate</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>123</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <italic>true</italic>
+     </font>
+    </property>
+    <property name="text">
+     <string>Repeat</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <weight>50</weight>
+      <italic>true</italic>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLable{
+
+rgba(128, 0, 255, 143)
+}</string>
+    </property>
+    <property name="text">
+     <string>Event</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="locateEdit">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>90</y>
+      <width>261</width>
+      <height>21</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QDialogButtonBox" name="buttonBox">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>190</y>
+      <width>341</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+    <property name="standardButtons">
+     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>153</y>
+      <width>59</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Color</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="colorComboBox">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>150</y>
+      <width>121</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Red(Urgent)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Blue(LIfe)</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cyan(Work)</string>
+     </property>
+    </item>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+ <slots>
+  <signal>pass(QString)</signal>
+ </slots>
+</ui>
