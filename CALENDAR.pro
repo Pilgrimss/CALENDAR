@@ -18,7 +18,8 @@ SOURCES += main.cpp\
     mycalendar.cpp \
     myevent.cpp \
     user.cpp \
-    database.cpp
+    database.cpp \
+    displaylistwidget.cpp
 
 HEADERS  += \
     notedialog.h \
@@ -27,7 +28,8 @@ HEADERS  += \
     widget.h \
     myevent.h \
     user.h \
-    database.h
+    database.h \
+    displaylistwidget.h
 
 FORMS    += widget.ui \
     notedialog.ui

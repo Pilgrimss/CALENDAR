@@ -258,7 +258,7 @@ colour: rgba(0, 128, 255, 147)
        <height>311</height>
       </rect>
      </property>
-     <widget class="QListWidget" name="displayList">
+     <widget class="DisplayListWidget" name="displayList">
       <property name="geometry">
        <rect>
         <x>0</x>
@@ -309,6 +309,11 @@ colour: rgba(0, 128, 255, 147)
    <class>myCalendar</class>
    <extends>QCalendarWidget</extends>
    <header location="global">mycalendar.h</header>
+  </customwidget>
+  <customwidget>
+   <class>DisplayListWidget</class>
+   <extends>QListWidget</extends>
+   <header location="global">displaylistwidget.h</header>
   </customwidget>
  </customwidgets>
  <resources/>

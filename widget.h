@@ -14,7 +14,8 @@
 #include <QDir>
 #include <QFile>
 #include<QTextStream>
-#include <database.h>
+#include "database.h"
+#include "displaylistwidget.h"
 namespace Ui {
 class Widget;
 }
