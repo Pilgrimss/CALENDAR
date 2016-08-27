@@ -13,9 +13,8 @@
 #include "QList"
 #include <QDir>
 #include <QFile>
-#include<QTextStream>
+#include <QTextStream>
 #include "database.h"
-#include "displaylistwidget.h"
 namespace Ui {
 class Widget;
 }
@@ -55,14 +54,13 @@ private slots:
 
     void on_calendar_clicked(const QDate &date);
 
-    //void on_displayList_itemClicked(QListWidgetItem *item);
-
     void on_clearButton_clicked();
-
-    void on_deleteButton_clicked();
 
     void on_displayList_itemActivated(QListWidgetItem *item);
 
+    void on_deleteButton_clicked();
+
+    void on_editButton_clicked();
 
 public slots:
     void addNote(const QString);
@@ -70,7 +68,7 @@ public slots:
 private:
     Ui::Widget *ui;
     noteDialog *note;
-    QList<int>* deleteList;
+    int index;//编辑条目
     myDataBase* dataBase;
 };
 

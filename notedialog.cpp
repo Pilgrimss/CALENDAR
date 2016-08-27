@@ -15,11 +15,11 @@ noteDialog::~noteDialog()
     delete ui;
 }
 
-//关闭窗口；
-void noteDialog::on_buttonBox_clicked(QAbstractButton *button)
+
+void noteDialog::initNoteDialog(myEvent *event)
 {
-    emit passDetail(event);
-    this->close();
+    ui->eventLineEdit->setText (event->getEventName ());
+    ui->locateEdit->setText (event->getLocate ());
 }
 
 
@@ -27,7 +27,6 @@ void noteDialog::on_buttonBox_clicked(QAbstractButton *button)
 void noteDialog::on_eventLineEdit_editingFinished()
 {
     event->setEventName (ui->eventLineEdit->text ());
-    pass(ui->eventLineEdit->text ());
 }
 
 //加地点
@@ -58,4 +57,19 @@ void noteDialog::on_repeatComboBox_currentTextChanged(const QString &arg1)
 void noteDialog::on_colorComboBox_currentTextChanged(const QString &arg1)
 {
     event->setColor(arg1);
+}
+
+void noteDialog::on_buttonBox_accepted()
+{
+    if(!ui->eventLineEdit->text().isEmpty ())
+    {
+        pass(ui->eventLineEdit->text ());
+        emit passDetail(event);
+    }
+    this->close();
+}
+
+void noteDialog::on_buttonBox_rejected()
+{
+    this->close();
 }

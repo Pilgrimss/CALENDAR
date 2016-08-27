@@ -157,6 +157,19 @@
       <string>First Day of the Week</string>
      </property>
     </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>180</y>
+       <width>59</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Language</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="dayTab">
     <attribute name="title">
@@ -268,30 +281,43 @@ colour: rgba(0, 128, 255, 147)
        </rect>
       </property>
      </widget>
-     <widget class="QPushButton" name="deleteButton">
+     <widget class="QPushButton" name="editButton">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>270</y>
+        <y>250</y>
         <width>81</width>
         <height>32</height>
        </rect>
       </property>
       <property name="text">
-       <string>delete</string>
+       <string>edit</string>
       </property>
      </widget>
      <widget class="QPushButton" name="clearButton">
       <property name="geometry">
        <rect>
-        <x>92</x>
-        <y>270</y>
+        <x>40</x>
+        <y>280</y>
         <width>91</width>
         <height>32</height>
        </rect>
       </property>
       <property name="text">
        <string>clear</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="deleteButton">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>250</y>
+        <width>81</width>
+        <height>32</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>delete</string>
       </property>
      </widget>
     </widget>

@@ -8,8 +8,8 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    deleteList = new QList<int>();
     ui->deleteButton->setEnabled (false);
+    ui->editButton->setEnabled (false);
     QDir::setCurrent ("/Users/yingEos/Desktop/CALENDAR/");
     //qDebug()<<QDir::currentPath();
     //QFile* file = new QFile(QDir::currentPath()+'/'+"test.txt");
@@ -55,7 +55,6 @@ void Widget::dropEvent(QDropEvent *event)
         info = QFileInfo(fileName);
         QString file_back = info.fileName();
         QString newfile = QDir::currentPath() + '/' + "DragFile/" +file_back;
-        qDebug() << newfile << endl;
         if (fileName == newfile){
             return;
         }
@@ -77,15 +76,17 @@ void Widget::dropEvent(QDropEvent *event)
 void Widget::initDisplayList()
 {
     ui->displayList->clear ();
-    for (int i = 0; i < dataBase->mytodolist->size (); i++)
+    for (int i = 0; i < dataBase->mytodolist->count(); i++)
+    {
         ui->displayList->addItem (dataBase->mytodolist->at (i));
+    }
 }
 
 //初始化database;
 void Widget::initDataBase(const QDate &mydate)
 {
     QString filePath = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
-    dataBase = new myDataBase(filePath);
+    dataBase = new myDataBase(filePath,mydate);
     dataBase->readData ();
 }
 
@@ -94,15 +95,14 @@ void Widget::saveDataBase()
 {
     dataBase->writeData ();
 }
+
 //读取文件名，加到todolist里
 bool Widget::readFile(const QString &fileName)
 {
     bool r = false;
     QFile file(fileName);
     QTextStream in(&file);
-    QString content;
     if(file.open(QIODevice::ReadOnly)) {
-        in >> content;
         r = true;
     }
    addNote (fileName);
@@ -114,7 +114,7 @@ bool Widget::readFile(const QString &fileName)
 void Widget::on_OnRadiobutton_toggled(bool checked)
 {
     if(checked)
-         setAcceptDrops(true);
+        setAcceptDrops(true);
     else
         setAcceptDrops(false);
 }
@@ -132,24 +132,34 @@ void Widget::on_calendar_activated(const QDate &date)
 //单击某一天，显示该天事件
 void Widget::on_calendar_clicked(const QDate &date)
 {
-    if(ui->calendar->getdate()!= date)
+    // 如果点击的日期与当前日期相同，就重新不读取dataBase
+    // 如果不同，或者刚刚打开程序，所存日期为空，则重新读取dataBase；
+    if(!(ui->calendar->getdate() == date))
     {
-        ui->calendar->setDate (date);
+        //如果所存日期不为空，先保存刚刚点击的那个日期的信息
+        if(!ui->calendar->getdate().isNull ())
+        {
+            qDebug() << "inSuccess" << endl;
+            saveDataBase ();
+        }
         qDebug() << date << endl;
+        ui->calendar->setDate (date);
         initDataBase(date);
     }
     initDisplayList ();
-    qDebug() << dataBase->mytodolist << endl;
+
 }
 
 
 //添加事件名称到todolist
 void Widget::addNote(QString s)
 {
+    //initDataBase (ui->calendar->selectedDate ());
     dataBase->mytodolist->push_back(s);
     initDisplayList ();
 }
 
+//添加事件详细信息到myEvent
 void Widget::addEvent(const myEvent &event)
 {
     dataBase->myEventList->push_back(event);
@@ -164,26 +174,42 @@ void Widget::addEvent(const myEvent &event)
 }
 */
 
-
+//全部删除
 void Widget::on_clearButton_clicked()
 {
     ui->displayList->clear ();
-    deleteList = new QList<int>();
+    dataBase->myEventList = new QVector<myEvent>;
+    dataBase->mytodolist = new QVector<QString>;
+
 }
 
+//删除
 void Widget::on_deleteButton_clicked()
-{
-    for (int i = 0; i < deleteList->size (); i++)
-        delete ui->displayList->takeItem (deleteList->at (i));
+{ 
+   qDebug() << index << endl;
+   if(index > 0)
+   {
+    delete ui->displayList->takeItem (index);
+    dataBase->myEventList->remove(index);
+    dataBase->mytodolist->remove (index);
     ui->deleteButton->setEnabled (false);
-    deleteList = new QList<int>();
+   }
+    index = -1;
 }
 
-//启动删除功能；
+//启动删除和编辑
 void Widget::on_displayList_itemActivated(QListWidgetItem *item)
 {
     ui->deleteButton->setEnabled (true);
-    int index = ui->displayList->row(item);
-    deleteList->push_back (index);
+    ui->editButton->setEnabled (true);
+    index = ui->displayList->row(item);
 }
 
+//编辑
+void Widget::on_editButton_clicked()
+{
+    note = new noteDialog();
+    myEvent tempEvent = dataBase->myEventList->takeAt(index);
+    note->initNoteDialog (tempEvent);
+    note->exec ();
+}

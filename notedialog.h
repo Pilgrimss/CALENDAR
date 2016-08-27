@@ -18,7 +18,7 @@ class noteDialog : public QDialog
 public:
     explicit noteDialog(QWidget *parent = 0);
     ~noteDialog();
-
+    void initNoteDialog(myEvent*);
 
 signals:
 
@@ -26,7 +26,6 @@ signals:
     void passDetail(const myEvent);//传递事件具体信息
 
 private slots:
-    void on_buttonBox_clicked(QAbstractButton *button);
 
     void on_eventLineEdit_editingFinished();
 
@@ -39,6 +38,10 @@ private slots:
     void on_repeatComboBox_currentTextChanged(const QString &arg1);
 
     void on_colorComboBox_currentTextChanged(const QString &arg1);
+
+    void on_buttonBox_accepted();
+
+    void on_buttonBox_rejected();
 
 private:
     Ui::noteDialog *ui;
