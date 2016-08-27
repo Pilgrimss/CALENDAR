@@ -76,8 +76,10 @@ void Widget::dropEvent(QDropEvent *event)
 void Widget::initDisplayList()
 {
     ui->displayList->clear ();
+    //qDebug() << dataBase->mytodolist->count() << endl;
     for (int i = 0; i < dataBase->mytodolist->count(); i++)
     {
+        //qDebug() << "233" << dataBase->mytodolist -> at (i) << endl;
         ui->displayList->addItem (dataBase->mytodolist->at (i));
     }
 }
@@ -86,6 +88,7 @@ void Widget::initDisplayList()
 void Widget::initDataBase(const QDate &mydate)
 {
     QString filePath = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
+    //qDebug() << filePath << endl;
     dataBase = new myDataBase(filePath,mydate);
     dataBase->readData ();
 }
@@ -132,19 +135,20 @@ void Widget::on_calendar_activated(const QDate &date)
 //单击某一天，显示该天事件
 void Widget::on_calendar_clicked(const QDate &date)
 {
-    // 如果点击的日期与当前日期相同，就重新不读取dataBase
+    // 如果点击的日期与当前日期相同，就不读取dataBase
     // 如果不同，或者刚刚打开程序，所存日期为空，则重新读取dataBase；
     if(!(ui->calendar->getdate() == date))
     {
         //如果所存日期不为空，先保存刚刚点击的那个日期的信息
         if(!ui->calendar->getdate().isNull ())
         {
-            qDebug() << "inSuccess" << endl;
             saveDataBase ();
         }
-        qDebug() << date << endl;
+
         ui->calendar->setDate (date);
+        //qDebug() << "2333" << date << endl;
         initDataBase(date);
+        //qDebug() << dataBase->mytodolist->count() << endl;
     }
     initDisplayList ();
 
@@ -186,13 +190,15 @@ void Widget::on_clearButton_clicked()
 //删除
 void Widget::on_deleteButton_clicked()
 { 
-   qDebug() << index << endl;
-   if(index > 0)
+   //qDebug() << "index:" << index << endl;
+   if(index > -1)
    {
-    delete ui->displayList->takeItem (index);
+    qDebug() << ui->displayList->takeItem(index) << endl;
+    ui->displayList->takeItem(index);
     dataBase->myEventList->remove(index);
     dataBase->mytodolist->remove (index);
     ui->deleteButton->setEnabled (false);
+    ui->editButton->setEnabled (false);
    }
     index = -1;
 }
@@ -203,13 +209,18 @@ void Widget::on_displayList_itemActivated(QListWidgetItem *item)
     ui->deleteButton->setEnabled (true);
     ui->editButton->setEnabled (true);
     index = ui->displayList->row(item);
+     //qDebug() << "index:" << index << endl;
 }
 
 //编辑
 void Widget::on_editButton_clicked()
 {
+    //qDebug() << "index:" << index << endl;
     note = new noteDialog();
-    myEvent tempEvent = dataBase->myEventList->takeAt(index);
-    note->initNoteDialog (tempEvent);
+    myEvent *tempEvent = new myEvent(dataBase->myEventList->takeAt(index));
+    note->initNoteDialog(tempEvent);
+    //qDebug() << "event*******" << tempEvent->getEventName () << endl;
     note->exec ();
+    ui->deleteButton->setEnabled (false);
+    ui->editButton->setEnabled (false);
 }

@@ -22,11 +22,12 @@ void noteDialog::initNoteDialog(myEvent *event)
     ui->locateEdit->setText (event->getLocate ());
 }
 
-
+/*
 //加事件
 void noteDialog::on_eventLineEdit_editingFinished()
 {
-    event->setEventName (ui->eventLineEdit->text ());
+    event->setEventName(ui->eventLineEdit->text ());
+    qDebug() << "^^^^^^^^" << endl;
 }
 
 //加地点
@@ -58,12 +59,21 @@ void noteDialog::on_colorComboBox_currentTextChanged(const QString &arg1)
 {
     event->setColor(arg1);
 }
-
+*/
 void noteDialog::on_buttonBox_accepted()
 {
+    //qDebug() << "********" << event->getEventName () << endl;
+    event->setEventName(ui->eventLineEdit->text ());
+    event->setLocate(ui->locateEdit->text ());
+    event->setStartTime (ui->startTimeEdit->time ().toString ());
+    event->setEndTime(ui->endTimeEdit->time ().toString ());
+    event->setRepeat(ui->repeatComboBox->currentText ());
+    event->setColor(ui->colorComboBox->currentText ());
     if(!ui->eventLineEdit->text().isEmpty ())
     {
         pass(ui->eventLineEdit->text ());
+        qDebug() <<"&&&&&&&" << ui->eventLineEdit->text() << endl;
+        qDebug() << "********" << event->getEventName () << endl;
         emit passDetail(event);
     }
     this->close();

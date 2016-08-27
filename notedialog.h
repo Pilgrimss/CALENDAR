@@ -26,7 +26,7 @@ signals:
     void passDetail(const myEvent);//传递事件具体信息
 
 private slots:
-
+    /*
     void on_eventLineEdit_editingFinished();
 
     void on_locateEdit_editingFinished();
@@ -38,6 +38,7 @@ private slots:
     void on_repeatComboBox_currentTextChanged(const QString &arg1);
 
     void on_colorComboBox_currentTextChanged(const QString &arg1);
+    */
 
     void on_buttonBox_accepted();
 

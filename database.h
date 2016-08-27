@@ -9,10 +9,11 @@
 #include "QTextStream"
 #include <QDebug>
 #include <QFileInfo>
+#include <QDir>
 class myDataBase
 {
 public:
-    myDataBase(const QString file,const QDate mydate);
+    myDataBase(const QString file,const QDate &mydate);
     myDataBase(){};
     void readData();
     void writeData();

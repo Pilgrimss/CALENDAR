@@ -78,276 +78,6 @@
      </property>
     </item>
    </widget>
-   <widget class="QComboBox" name="endComboBox">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>60</y>
-      <width>121</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>00:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>01:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>02:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>03:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>04:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>05:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>06:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>07:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>08:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>09:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>10:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>11:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>12:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>13:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>14:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>15:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>16:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>17:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>18:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>19:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>20:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>21:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>22:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>23:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>24:00</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QComboBox" name="startComboBox">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>60</y>
-      <width>121</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <item>
-     <property name="text">
-      <string>00:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>01:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>02:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>03:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>04:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>05:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>06:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>07:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>08:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>09:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>10:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>11:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>12:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>13:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>14:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>15:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>16:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>17:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>18:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>19:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>20:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>21:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>22:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>23:00</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>24:00</string>
-     </property>
-    </item>
-   </widget>
    <widget class="QLineEdit" name="eventLineEdit">
     <property name="geometry">
      <rect>
@@ -483,6 +213,26 @@ rgba(128, 0, 255, 143)
       <string>Cyan(Work)</string>
      </property>
     </item>
+   </widget>
+   <widget class="QTimeEdit" name="startTimeEdit">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>60</y>
+      <width>118</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTimeEdit" name="endTimeEdit">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>60</y>
+      <width>118</width>
+      <height>24</height>
+     </rect>
+    </property>
    </widget>
   </widget>
  </widget>

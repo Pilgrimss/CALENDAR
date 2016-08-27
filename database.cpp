@@ -3,7 +3,7 @@
 #include <QFileInfo>
 #include <QFile>
 
-myDataBase::myDataBase(const QString file, const QDate date)
+myDataBase::myDataBase(const QString file, const QDate &date)
     :filename(file),mydate(date)
 {
 
@@ -11,7 +11,7 @@ myDataBase::myDataBase(const QString file, const QDate date)
 
 void myDataBase::readData()
 {
-    //qDebug() << filename << endl;
+
     QFile *file = new QFile(filename);
     myEventList = new QVector<myEvent>();
     mytodolist = new QVector<QString>();
@@ -19,9 +19,7 @@ void myDataBase::readData()
     if(!file->open(QIODevice::ReadWrite | QIODevice::Text))
         qDebug()<<"Can't open the file!"<<endl;
     myEvent tempEvent = new myEvent();
-
     QTextStream in(file);
-
     QString data = in.readLine();
     while(!in.atEnd ())
     {
@@ -52,38 +50,33 @@ void myDataBase::readData()
                 myEvent tempEvent = new myEvent();
             }
             }
-
             data = in.readLine ();
          }
-        data = in.readLine();
+        //data = in.readLine();
         while(!in.atEnd ())
         {
-             mytodolist->push_back (data);
              data = in.readLine ();
+             mytodolist->push_back (data);
         }
     }
 
     file->close ();
 }
 void myDataBase::writeData()
-{
+{      
     QString filePath = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
     QFile* file = new QFile(filePath);
+
     if(!file->open( QIODevice::ReadWrite))
        qDebug() << "can't write" << endl;
+    if(myEventList->isEmpty ())
+    {
+        qDebug() << "empty" << endl;
+        return;
+    }
     QTextStream out(file);
     for(int i = 0; i < myEventList->size ();i++)
     {
-//******************************
-        qDebug()<<myEventList->at(i).getEventName ()<<endl;
-        qDebug()<<myEventList->at(i).getStartTime ()<<endl;
-        qDebug()<<myEventList->at(i).getEndTime ()<<endl;
-        qDebug()<<myEventList->at(i).getLocate ()<<endl;
-        qDebug()<<myEventList->at(i).getRepeat ()<<endl;
-        qDebug()<<myEventList->at(i).getColor ()<<endl;
-
-//*****************************
-
         out<<myEventList->at(i).getEventName ()<<endl;
         out<<myEventList->at(i).getStartTime ()<<endl;
         out<<myEventList->at(i).getEndTime ()<<endl;
@@ -91,7 +84,6 @@ void myDataBase::writeData()
         out<<myEventList->at(i).getRepeat ()<<endl;
         out<<myEventList->at(i).getColor ()<<endl;
     }
-    qDebug() << filePath << endl;
     out <<"interval"<<endl;
     for(int i = 0; i < mytodolist->size (); i++)
         out << mytodolist->at (i) << endl;
