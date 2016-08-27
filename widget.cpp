@@ -193,7 +193,8 @@ void Widget::on_deleteButton_clicked()
    //qDebug() << "index:" << index << endl;
    if(index > -1)
    {
-    qDebug() << ui->displayList->takeItem(index) << endl;
+    //qDebug() << "XXXXXXX " << ui->displayList->takeItem(index) << endl;
+       qDebug() <<"xxxx" << index;
     ui->displayList->takeItem(index);
     dataBase->myEventList->remove(index);
     dataBase->mytodolist->remove (index);

@@ -66,15 +66,17 @@ void myDataBase::writeData()
 {      
     QString filePath = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
     QFile* file = new QFile(filePath);
+    file->remove ();
 
     if(!file->open( QIODevice::ReadWrite))
        qDebug() << "can't write" << endl;
+    QTextStream out(file);
     if(myEventList->isEmpty ())
     {
         qDebug() << "empty" << endl;
         return;
     }
-    QTextStream out(file);
+    //QTextStream out(file);
     for(int i = 0; i < myEventList->size ();i++)
     {
         out<<myEventList->at(i).getEventName ()<<endl;
