@@ -40,7 +40,6 @@ public:
 
     void initDataBase(const QDate&);
 
-    void saveSeries(myEvent temp, int index);
 
     void saveDataBase();
 

@@ -9,15 +9,11 @@ myDataBase::myDataBase(const QDate &date)
 
 }
 
-void myDataBase::readData()
+void myDataBase::readBase(QFile* file, QVector<myEvent>* eventList, QVector<QString>* todoList)
 {
-    QString filename = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
-    QFile *file = new QFile(filename);
-    myEventList = new QVector<myEvent>();
-    mytodolist = new QVector<QString>();
-    //无法打开文件，报错
     if(!file->open(QIODevice::ReadWrite | QIODevice::Text))
-        qDebug()<<"Can't open the file!"<<endl;
+            qDebug()<<"Can't open the file!"<<endl;
+    qDebug() << "&&&&&&" << file <<"&&&&&" <<  endl;
     myEvent tempEvent = new myEvent();
     QTextStream in(file);
     QString data = in.readLine();
@@ -28,65 +24,97 @@ void myDataBase::readData()
 
             switch(index % 6)
             {
-            case 0:
-            tempEvent.setEventName (data);
+                case 0:
+                tempEvent.setEventName (data);
                 break;
-            case 1:
-            tempEvent.setStartTime (data);
+                case 1:
+                tempEvent.setStartTime (data);
                 break;
-            case 2:
-            tempEvent.setEndTime (data);
+                case 2:
+                tempEvent.setEndTime (data);
                 break;
-            case 3:
-            tempEvent.setLocate (data);
+                case 3:
+                tempEvent.setLocate (data);
                 break;
-            case 4:
-            tempEvent.setRepeat (data);
+                case 4:
+                tempEvent.setRepeat (data);
                 break;
-            default:
-            {
-                tempEvent.setColor (data);
-                myEventList->push_back (tempEvent);
-                myEvent tempEvent = new myEvent();
-            }
+                default:
+                {
+                    tempEvent.setColor (data);
+                    eventList->push_back (tempEvent);
+                    myEvent tempEvent = new myEvent();
+                 }
             }
             data = in.readLine ();
-         }
-        //data = in.readLine();
+        }
         while(!in.atEnd ())
         {
-             data = in.readLine ();
-             mytodolist->push_back (data);
+         data = in.readLine ();
+         todoList->push_back (data);
         }
     }
-
     file->close ();
 }
-void myDataBase::writeData()
+
+void myDataBase::readData()
+{
+    QString filename = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
+    QFile *file = new QFile(filename);
+    qDebug() << filename << endl;
+    myEventList = new QVector<myEvent>();
+    mytodolist = new QVector<QString>();
+    readBase (file,myEventList,mytodolist);
+}
+
+
+void myDataBase::readRepeat()
+{
+    QFile *file = new QFile("repeatFile");
+    repeatEventList = new QVector<myEvent>();
+    repeatToDoList = new QVector<QString>();
+    readBase (file,repeatEventList,repeatToDoList);
+}
+
+
+void myDataBase::writeBase(QFile* file, QVector<myEvent>* eventList, QVector<QString>* todoList)
 {      
+    if(!file->open( QIODevice::ReadWrite| QIODevice::Text))
+       qDebug() << "can't write" << endl;
+    QTextStream out(file);
+    if(eventList->isEmpty ())
+    {
+        return;
+    }
+    //QTextStream out(file);
+    for(int i = 0; i < eventList->size ();i++)
+    {
+        out<<eventList->at(i).getEventName ()<<endl;
+        out<<eventList->at(i).getStartTime ()<<endl;
+        out<<eventList->at(i).getEndTime ()<<endl;
+        out<<eventList->at(i).getLocate ()<<endl;
+        out<<eventList->at(i).getRepeat ()<<endl;
+        out<<eventList->at(i).getColor ()<<endl;
+    }
+    out <<"interval"<<endl;
+    for(int i = 0; i < todoList->size (); i++)
+        out << todoList->at (i) << endl;
+    out.flush();
+    file->close();
+}
+
+void myDataBase::writeData()
+{
     QString filePath = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
     QFile* file = new QFile(filePath);
     file->remove ();
     if(!file->open( QIODevice::ReadWrite))
        qDebug() << "can't write" << endl;
-    QTextStream out(file);
-    if(myEventList->isEmpty ())
-    {
-        return;
-    }
-    //QTextStream out(file);
-    for(int i = 0; i < myEventList->size ();i++)
-    {
-        out<<myEventList->at(i).getEventName ()<<endl;
-        out<<myEventList->at(i).getStartTime ()<<endl;
-        out<<myEventList->at(i).getEndTime ()<<endl;
-        out<<myEventList->at(i).getLocate ()<<endl;
-        out<<myEventList->at(i).getRepeat ()<<endl;
-        out<<myEventList->at(i).getColor ()<<endl;
-    }
-    out <<"interval"<<endl;
-    for(int i = 0; i < mytodolist->size (); i++)
-        out << mytodolist->at (i) << endl;
-    out.flush();
-    file->close();
+    writeBase (file,myEventList,mytodolist);
+}
+void myDataBase::writeRepeat()
+{
+    QFile* file = new QFile("repeatFile");
+    file->remove ();
+    writeBase (file,repeatEventList,repeatToDoList);
 }

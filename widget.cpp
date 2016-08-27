@@ -11,7 +11,7 @@ Widget::Widget(QWidget *parent) :
     ui->deleteButton->setEnabled (false);
     ui->editButton->setEnabled (false);
     QDir::setCurrent ("/Users/yingEos/Desktop/CALENDAR/");
-    //qDebug()<<QDir::currentPath();
+    qDebug()<<QDir::currentPath();
     //QFile* file = new QFile(QDir::currentPath()+'/'+"test.txt");
     //file->open(QIODevice::ReadWrite);
     //qDebug() << file->readAll() << endl;
@@ -87,79 +87,10 @@ void Widget::initDisplayList()
 //初始化database;
 void Widget::initDataBase(const QDate &mydate)
 {
-
     //qDebug() << filePath << endl;
     dataBase = new myDataBase(mydate);
     dataBase->readData ();
-}
-
-//批量保存
-void Widget::saveSeries(myEvent temp,int index)
-{
-    QString signal = temp.getRepeat ();
-    qDebug() << "&&&&&" << signal << endl;
-    if(signal == tr("OnlyOnce"))
-    {
-        return;
-    }
-    if(signal == tr("EveryDay"))
-    {
-        QDate date = dataBase->mydate;
-        for(int i = 0; i < 1000; i++)
-        {
-            date = date.addDays (1);
-            myDataBase *tempDataBase = new myDataBase(date);
-            tempDataBase->readData();
-            tempDataBase->myEventList->push_back (temp);
-            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
-            tempDataBase->writeData ();         
-        }
-    return;
-    }
-    if(signal == tr("EveryWeek"))
-    {
-        QDate date = dataBase->mydate;
-        for(int i = 0; i < 100; i++)
-        {
-            date = date.addDays(7);
-            qDebug() << date << endl ;
-            myDataBase *tempDataBase = new myDataBase(date);
-            tempDataBase->readData();
-            tempDataBase->myEventList->push_back (temp);
-            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
-            tempDataBase->writeData ();
-        }
-        return;
-    }
-    if(signal == tr ("EveryMonth"))
-    {
-        QDate date = dataBase->mydate;
-        for(int i = 0; i < 30; i++)
-        {
-            date = date.addMonths(1);
-            myDataBase *tempDataBase = new myDataBase(date);
-            tempDataBase->readData();
-            tempDataBase->myEventList->push_back (temp);
-            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
-            tempDataBase->writeData ();
-        }
-        return;
-    }
-    if(signal == tr("EveryYear"))
-    {
-        QDate date = dataBase->mydate;
-        for(int i = 0; i < 10; i++)
-        {
-            date = date.addYears(1);
-            myDataBase *tempDataBase = new myDataBase(date);
-            tempDataBase->readData();
-            tempDataBase->myEventList->push_back (temp);
-            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
-            tempDataBase->writeData ();         
-        }
-        return;
-    }
-    qDebug() << "can't compare" << endl;
+    dataBase->readRepeat ();
 }
 
 
@@ -168,12 +99,8 @@ void Widget::saveSeries(myEvent temp,int index)
 void Widget::saveDataBase()
 {
     dataBase->writeData ();
+    dataBase->writeRepeat ();
     //qDebug() << "&&&&&&&&"  << dataBase->myEventList->size() << endl;
-    for (int i = 0; i< dataBase->myEventList->size ();i++)
-    {
-        myEvent temp = dataBase->myEventList->at(i);
-        saveSeries(temp,i);
-    }
 }
 
 
