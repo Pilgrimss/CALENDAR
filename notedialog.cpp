@@ -16,10 +16,17 @@ noteDialog::~noteDialog()
 }
 
 
-void noteDialog::initNoteDialog(myEvent *event)
+void noteDialog::initNoteDialog(const myEvent *tempevent)
 {
+    event = new myEvent(tempevent);
     ui->eventLineEdit->setText (event->getEventName ());
     ui->locateEdit->setText (event->getLocate ());
+    QString temp = event->getColor ();
+    int index = ui->colorComboBox->findText (temp);
+    ui->colorComboBox->setCurrentIndex (index);
+    temp = event->getRepeat ();
+    index = ui->repeatComboBox->findText (temp);
+    ui->repeatComboBox->setCurrentIndex (index);
 }
 
 /*
@@ -72,10 +79,10 @@ void noteDialog::on_buttonBox_accepted()
     if(!ui->eventLineEdit->text().isEmpty ())
     {
         pass(ui->eventLineEdit->text ());
-        qDebug() <<"&&&&&&&" << ui->eventLineEdit->text() << endl;
         qDebug() << "********" << event->getEventName () << endl;
         emit passDetail(event);
     }
+    emit deleteItem ();
     this->close();
 }
 

@@ -109,6 +109,7 @@ bool Widget::readFile(const QString &fileName)
         r = true;
     }
    addNote (fileName);
+
     return r;
 }
 
@@ -218,10 +219,18 @@ void Widget::on_editButton_clicked()
 {
     //qDebug() << "index:" << index << endl;
     note = new noteDialog();
-    myEvent *tempEvent = new myEvent(dataBase->myEventList->takeAt(index));
+    myEvent *tempEvent = new myEvent(dataBase->myEventList->at (index));
     note->initNoteDialog(tempEvent);
-    //qDebug() << "event*******" << tempEvent->getEventName () << endl;
-    note->exec ();
+    qDebug() << "event*******" << tempEvent->getEventName () << endl;
+    connect (note, SIGNAL(pass(QString)), this,SLOT(addNote(QString)));
+    connect (note, SIGNAL(passDetail(myEvent)),this, SLOT(addEvent(myEvent)));
+    if(note->exec() == QDialog::Accepted)
+    {
+      dataBase->myEventList->takeAt(index).getEventName ();
+      qDebug() << dataBase->mytodolist->takeAt (index);
+      initDisplayList ();
+    }
+
     ui->deleteButton->setEnabled (false);
     ui->editButton->setEnabled (false);
 }

@@ -18,12 +18,13 @@ class noteDialog : public QDialog
 public:
     explicit noteDialog(QWidget *parent = 0);
     ~noteDialog();
-    void initNoteDialog(myEvent*);
+    void initNoteDialog(const myEvent *tempevent);
 
 signals:
 
     void pass(const QString);//传递事件名称
     void passDetail(const myEvent);//传递事件具体信息
+    void deleteItem();//在编辑状态下，如果保存，就把原来的事件删掉；
 
 private slots:
     /*

@@ -237,7 +237,24 @@ rgba(128, 0, 255, 143)
   </widget>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>noteDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>160</x>
+     <y>205</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>312</x>
+     <y>211</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <signal>pass(QString)</signal>
  </slots>

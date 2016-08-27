@@ -30,7 +30,7 @@ private:
     QDate m_selectedDate;//当前日期
     QPen m_outlinePen;
     QBrush m_transparentBrush;
-
+    QVector<QDate> paintdates;
 };
 
 #endif // MYCALENDAR_H
