@@ -27,19 +27,6 @@ signals:
     void deleteItem();//在编辑状态下，如果保存，就把原来的事件删掉；
 
 private slots:
-    /*
-    void on_eventLineEdit_editingFinished();
-
-    void on_locateEdit_editingFinished();
-
-    void on_startComboBox_currentTextChanged(const QString &arg1);
-
-    void on_endComboBox_currentTextChanged(const QString &arg1);
-
-    void on_repeatComboBox_currentTextChanged(const QString &arg1);
-
-    void on_colorComboBox_currentTextChanged(const QString &arg1);
-    */
 
     void on_buttonBox_accepted();
 

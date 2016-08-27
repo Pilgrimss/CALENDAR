@@ -202,11 +202,9 @@ void Widget::on_clearButton_clicked()
 //删除
 void Widget::on_deleteButton_clicked()
 { 
-   //qDebug() << "index:" << index << endl;
    if(index > -1)
    {
-    //qDebug() << "XXXXXXX " << ui->displayList->takeItem(index) << endl;
-    myEvent temp = dataBase->myEventList->takeAt (index);
+    myEvent temp = dataBase->myEventList->takeAt(index);
     if(temp.getRepeat() != "OnlyOnce")
     {
         for(int i = 0; i < dataBase->repeatEventList->size(); i++)
@@ -239,7 +237,7 @@ void Widget::on_displayList_itemActivated(QListWidgetItem *item)
 //编辑
 void Widget::on_editButton_clicked()
 {
-    //qDebug() << "index:" << index << endl;
+  
     note = new noteDialog();
     myEvent *tempEvent = new myEvent(dataBase->myEventList->at (index));
     note->initNoteDialog(tempEvent);

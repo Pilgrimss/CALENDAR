@@ -11,6 +11,7 @@ class myEvent
 public:
     myEvent(const myEvent*temp);
     myEvent(){};
+    myEvent(QDate mydate):date(mydate){};
 
     //读取
     const QString getEventName() const {return eventName;}
@@ -27,7 +28,7 @@ public:
     void setLocate(QString l){locate = l;}
     void setRepeat(QString r){repeat =r;}
     void setColor(QString c){color = c;}
-
+    bool operator == (const myEvent temp);
 public:
     QDate date;
 private:
@@ -37,7 +38,6 @@ private:
     QString locate;
     QString repeat;
     QString color;
-
 };
 
 #endif // MYEVENT_H

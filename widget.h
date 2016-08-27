@@ -42,7 +42,7 @@ public:
 
     void saveDataBase();
 
-    bool setRepeat(myEvent repeatEvent);
+    bool judgeRepeat(myEvent repeatEvent);
 
 private slots:
     //拖拽
@@ -64,7 +64,7 @@ private slots:
 
 public slots:
     void addNote(const QString);
-    void addEvent(const myEvent &);
+    void addEvent(myEvent);
 private:
     Ui::Widget *ui;
     noteDialog *note;

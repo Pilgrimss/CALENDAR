@@ -23,7 +23,6 @@ public:
     void writeData();
     void writeRepeat();
 
-    QString filename;
     QVector <myEvent>* myEventList;
     QVector <QString>* mytodolist;
     QDate mydate;

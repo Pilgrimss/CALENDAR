@@ -39,9 +39,14 @@ void myDataBase::readBase(QFile* file, QVector<myEvent>* eventList, QVector<QStr
                 case 4:
                 tempEvent.setRepeat (data);
                 break;
+                /*
+                case 5:
+                tempEvent.setColor (data);
+                break;*/
                 default:
                 {
                     tempEvent.setColor (data);
+                    //mydate = QDate::fromString (data);
                     eventList->push_back (tempEvent);
                     myEvent tempEvent = new myEvent();
                  }
@@ -80,7 +85,9 @@ void myDataBase::readRepeat()
 void myDataBase::writeBase(QFile* file, QVector<myEvent>* eventList, QVector<QString>* todoList)
 {      
     if(!file->open( QIODevice::ReadWrite| QIODevice::Text))
+    {
        qDebug() << "can't write" << endl;
+     }
     QTextStream out(file);
     if(eventList->isEmpty ())
     {
@@ -89,12 +96,15 @@ void myDataBase::writeBase(QFile* file, QVector<myEvent>* eventList, QVector<QSt
     //QTextStream out(file);
     for(int i = 0; i < eventList->size ();i++)
     {
-        out<<eventList->at(i).getEventName ()<<endl;
-        out<<eventList->at(i).getStartTime ()<<endl;
-        out<<eventList->at(i).getEndTime ()<<endl;
-        out<<eventList->at(i).getLocate ()<<endl;
-        out<<eventList->at(i).getRepeat ()<<endl;
-        out<<eventList->at(i).getColor ()<<endl;
+        qDebug() << "2333333" << endl;
+        out<<eventList->at(i).getEventName ()<< endl;
+        out<<eventList->at(i).getStartTime ()<< endl;
+        out<<eventList->at(i).getEndTime ()<< endl;
+        out<<eventList->at(i).getLocate ()<< endl;
+        out<<eventList->at(i).getRepeat ()<< endl;
+        out<<eventList->at(i).getColor ()<< endl;
+        qDebug() << "%%%%%%%" << eventList->at(i).date.toString () << endl;
+        //out<<eventList->at(i).date.toString () << endl;
     }
     out <<"interval"<<endl;
     for(int i = 0; i < todoList->size (); i++)
