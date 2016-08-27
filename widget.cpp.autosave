@@ -171,13 +171,19 @@ void Widget::addNote(QString s)
 //添加事件详细信息到myEvent
 void Widget::addEvent(myEvent event)
 {
-    qDebug() << "toString" << ui->calendar->selectedDate ().toString ();
-    //dataBase->myEventList->push_back(event);
+    //此处加入event的QDate信息
+    dataBase->myEventList->push_back(event);
+    ui->calendar->paintdates.insert (ui->calendar->selectedDate (),event.getColor());
+
+//********************************
+  //如果设置为重复事件，就将其加到repeatEventList里面
     if(!(event.getRepeat () == tr("OnlyOnce")))
     {
         dataBase->repeatEventList->push_back (event);
         dataBase->repeatToDoList->push_back (event.getEventName ());
     }
+//*************************************
+    
 }
 
 
@@ -186,6 +192,7 @@ void Widget::on_clearButton_clicked()
 {
     ui->displayList->clear ();
     //判断一下，把今天的循环事件删去；
+//*********************************
     for(int i = 0; i < dataBase->repeatEventList->size(); i++)
     {
         myEvent temp = dataBase->repeatEventList->at(i);
@@ -195,6 +202,7 @@ void Widget::on_clearButton_clicked()
             dataBase->repeatToDoList->remove (i);
         }
     }
+//**********************************
     dataBase->myEventList = new QVector<myEvent>;
     dataBase->mytodolist = new QVector<QString>;
 }
@@ -205,6 +213,7 @@ void Widget::on_deleteButton_clicked()
    if(index > -1)
    {
     myEvent temp = dataBase->myEventList->takeAt(index);
+ //******************************************************
     if(temp.getRepeat() != "OnlyOnce")
     {
         for(int i = 0; i < dataBase->repeatEventList->size(); i++)
@@ -216,6 +225,7 @@ void Widget::on_deleteButton_clicked()
             }
         }
     }
+//********************************************************
     ui->displayList->takeItem(index);
     //dataBase->myEventList->remove(index);
     dataBase->mytodolist->remove (index);
@@ -237,7 +247,6 @@ void Widget::on_displayList_itemActivated(QListWidgetItem *item)
 //编辑
 void Widget::on_editButton_clicked()
 {
-  
     note = new noteDialog();
     myEvent *tempEvent = new myEvent(dataBase->myEventList->at (index));
     note->initNoteDialog(tempEvent);
@@ -247,6 +256,7 @@ void Widget::on_editButton_clicked()
     if(note->exec() == QDialog::Accepted)
     {
       myEvent temp = dataBase->myEventList->takeAt(index);
+//*****************************************
       if(temp.getRepeat () != "OnlyOnce")
       {
           for(int i = 0; i < dataBase->repeatEventList->size(); i++)
@@ -258,6 +268,7 @@ void Widget::on_editButton_clicked()
               }
           }
       }
+//***********************************************
       dataBase->mytodolist->takeAt (index);
       initDisplayList ();
     }
