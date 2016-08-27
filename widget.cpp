@@ -87,17 +87,95 @@ void Widget::initDisplayList()
 //初始化database;
 void Widget::initDataBase(const QDate &mydate)
 {
-    QString filePath = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
+
     //qDebug() << filePath << endl;
-    dataBase = new myDataBase(filePath,mydate);
+    dataBase = new myDataBase(mydate);
     dataBase->readData ();
 }
 
-//保存dataBase;
+//批量保存
+void Widget::saveSeries(myEvent temp,int index)
+{
+    QString signal = temp.getRepeat ();
+    qDebug() << "&&&&&" << signal << endl;
+    if(signal == tr("OnlyOnce"))
+    {
+        return;
+    }
+    if(signal == tr("EveryDay"))
+    {
+        QDate date = dataBase->mydate;
+        for(int i = 0; i < 1000; i++)
+        {
+            date = date.addDays (1);
+            myDataBase *tempDataBase = new myDataBase(date);
+            tempDataBase->readData();
+            tempDataBase->myEventList->push_back (temp);
+            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
+            tempDataBase->writeData ();         
+        }
+    return;
+    }
+    if(signal == tr("EveryWeek"))
+    {
+        QDate date = dataBase->mydate;
+        for(int i = 0; i < 100; i++)
+        {
+            date = date.addDays(7);
+            qDebug() << date << endl ;
+            myDataBase *tempDataBase = new myDataBase(date);
+            tempDataBase->readData();
+            tempDataBase->myEventList->push_back (temp);
+            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
+            tempDataBase->writeData ();
+        }
+        return;
+    }
+    if(signal == tr ("EveryMonth"))
+    {
+        QDate date = dataBase->mydate;
+        for(int i = 0; i < 30; i++)
+        {
+            date = date.addMonths(1);
+            myDataBase *tempDataBase = new myDataBase(date);
+            tempDataBase->readData();
+            tempDataBase->myEventList->push_back (temp);
+            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
+            tempDataBase->writeData ();
+        }
+        return;
+    }
+    if(signal == tr("EveryYear"))
+    {
+        QDate date = dataBase->mydate;
+        for(int i = 0; i < 10; i++)
+        {
+            date = date.addYears(1);
+            myDataBase *tempDataBase = new myDataBase(date);
+            tempDataBase->readData();
+            tempDataBase->myEventList->push_back (temp);
+            tempDataBase->mytodolist->push_back (dataBase->mytodolist->at (index));
+            tempDataBase->writeData ();         
+        }
+        return;
+    }
+    qDebug() << "can't compare" << endl;
+}
+
+
+
+//保存dataBase，添加批量添加功能
 void Widget::saveDataBase()
 {
     dataBase->writeData ();
+    //qDebug() << "&&&&&&&&"  << dataBase->myEventList->size() << endl;
+    for (int i = 0; i< dataBase->myEventList->size ();i++)
+    {
+        myEvent temp = dataBase->myEventList->at(i);
+        saveSeries(temp,i);
+    }
 }
+
 
 //读取文件名，加到todolist里
 bool Widget::readFile(const QString &fileName)
@@ -195,7 +273,7 @@ void Widget::on_deleteButton_clicked()
    if(index > -1)
    {
     //qDebug() << "XXXXXXX " << ui->displayList->takeItem(index) << endl;
-       qDebug() <<"xxxx" << index;
+
     ui->displayList->takeItem(index);
     dataBase->myEventList->remove(index);
     dataBase->mytodolist->remove (index);
@@ -221,13 +299,13 @@ void Widget::on_editButton_clicked()
     note = new noteDialog();
     myEvent *tempEvent = new myEvent(dataBase->myEventList->at (index));
     note->initNoteDialog(tempEvent);
-    qDebug() << "event*******" << tempEvent->getEventName () << endl;
+    //qDebug() << "event*******" << tempEvent->getEventName () << endl;
     connect (note, SIGNAL(pass(QString)), this,SLOT(addNote(QString)));
     connect (note, SIGNAL(passDetail(myEvent)),this, SLOT(addEvent(myEvent)));
     if(note->exec() == QDialog::Accepted)
     {
       dataBase->myEventList->takeAt(index).getEventName ();
-      qDebug() << dataBase->mytodolist->takeAt (index);
+      dataBase->mytodolist->takeAt (index);
       initDisplayList ();
     }
 

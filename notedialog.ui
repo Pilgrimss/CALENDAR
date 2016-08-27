@@ -69,12 +69,17 @@
     </item>
     <item>
      <property name="text">
-      <string>EveyWeek</string>
+      <string>EveryWeek</string>
      </property>
     </item>
     <item>
      <property name="text">
       <string>EveryMonth</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>EveryYear</string>
      </property>
     </item>
    </widget>

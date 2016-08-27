@@ -31,8 +31,6 @@ public:
     void dragEnterEvent(QDragEnterEvent *event);
     void dropEvent(QDropEvent *event);
 
-
-
     //用todolist初始化DisplayList;
     void initDisplayList();
 
@@ -41,6 +39,8 @@ public:
     void saveUser();
 
     void initDataBase(const QDate&);
+
+    void saveSeries(myEvent temp, int index);
 
     void saveDataBase();
 

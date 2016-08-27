@@ -3,15 +3,15 @@
 #include <QFileInfo>
 #include <QFile>
 
-myDataBase::myDataBase(const QString file, const QDate &date)
-    :filename(file),mydate(date)
+myDataBase::myDataBase(const QDate &date)
+    :mydate(date)
 {
 
 }
 
 void myDataBase::readData()
 {
-
+    QString filename = QString::number(mydate.year()) + QString::number(mydate.month()) + QString::number(mydate.day ());
     QFile *file = new QFile(filename);
     myEventList = new QVector<myEvent>();
     mytodolist = new QVector<QString>();
