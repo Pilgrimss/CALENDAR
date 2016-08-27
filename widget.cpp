@@ -11,24 +11,12 @@ Widget::Widget(QWidget *parent) :
     ui->deleteButton->setEnabled (false);
     ui->editButton->setEnabled (false);
     QDir::setCurrent ("/Users/yingEos/Desktop/CALENDAR/");
-    qDebug()<<QDir::currentPath();
-    //QFile* file = new QFile(QDir::currentPath()+'/'+"test.txt");
-    //file->open(QIODevice::ReadWrite);
-    //qDebug() << file->readAll() << endl;
-    //QTextStream out(file);
-    //out<<"test\n"<<endl;
-    //out.flush();
-    //file->close();
-     //qDebug() << file->fileName () << endl;
 }
-
 Widget::~Widget()
 {
     delete ui;
 }
-
-
-//拖起
+//拖拽
 void Widget::dragEnterEvent(QDragEnterEvent *event)
 {
     if (event->mimeData()->hasFormat("text/uri-list"))
@@ -36,8 +24,6 @@ void Widget::dragEnterEvent(QDragEnterEvent *event)
         event->acceptProposedAction();
     }
 }
-
-//放下
 void Widget::dropEvent(QDropEvent *event)
 {
     QList<QUrl> urls = event->mimeData()->urls();
@@ -68,22 +54,24 @@ void Widget::dropEvent(QDropEvent *event)
         }
     }
 }
-
-
-
-
 //初始化displayList
 void Widget::initDisplayList()
 {
     ui->displayList->clear ();
-    //qDebug() << dataBase->mytodolist->count() << endl;
     for (int i = 0; i < dataBase->mytodolist->count(); i++)
     {
-        //qDebug() << "233" << dataBase->mytodolist -> at (i) << endl;
         ui->displayList->addItem (dataBase->mytodolist->at (i));
     }
 }
-
+//判断该循环事件在所选日期会不会发生
+bool Widget::setRepeat(myEvent repeatEvent)
+{
+    //如果该循环事件是从当前日期开始，那么已经显示，不必再次显示了
+    if(repeatEvent.date == dataBase->mydate)
+        return false;
+    QString signal = repeatEvent.getRepeat ();
+    if(signal == tr("nly")) return false;
+}
 //初始化database;
 void Widget::initDataBase(const QDate &mydate)
 {
@@ -93,14 +81,11 @@ void Widget::initDataBase(const QDate &mydate)
     dataBase->readRepeat ();
 }
 
-
-
-//保存dataBase，添加批量添加功能
+//保存dataBase
 void Widget::saveDataBase()
 {
     dataBase->writeData ();
     dataBase->writeRepeat ();
-    //qDebug() << "&&&&&&&&"  << dataBase->myEventList->size() << endl;
 }
 
 
@@ -117,9 +102,7 @@ bool Widget::readFile(const QString &fileName)
 
     return r;
 }
-
 //设置Drag&Drop按钮
-
 void Widget::on_OnRadiobutton_toggled(bool checked)
 {
     if(checked)
@@ -127,9 +110,7 @@ void Widget::on_OnRadiobutton_toggled(bool checked)
     else
         setAcceptDrops(false);
 }
-
 //双击某一天，弹出事件设置窗口
-
 void Widget::on_calendar_activated(const QDate &date)
 {
     note = new noteDialog();
@@ -137,7 +118,6 @@ void Widget::on_calendar_activated(const QDate &date)
     connect (note, SIGNAL(passDetail(myEvent)),this, SLOT(addEvent(myEvent)));
     note->exec();
 }
-
 //单击某一天，显示该天事件
 void Widget::on_calendar_clicked(const QDate &date)
 {
@@ -150,14 +130,10 @@ void Widget::on_calendar_clicked(const QDate &date)
         {
             saveDataBase ();
         }
-
         ui->calendar->setDate (date);
-        //qDebug() << "2333" << date << endl;
         initDataBase(date);
-        //qDebug() << dataBase->mytodolist->count() << endl;
     }
     initDisplayList ();
-
 }
 
 

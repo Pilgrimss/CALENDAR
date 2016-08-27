@@ -40,8 +40,9 @@ public:
 
     void initDataBase(const QDate&);
 
-
     void saveDataBase();
+
+    bool setRepeat(myEvent repeatEvent);
 
 private slots:
     //拖拽

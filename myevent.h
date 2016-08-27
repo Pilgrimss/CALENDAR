@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QWidget>
 #include <QString>
+#include <QDate>
 class myEvent
 {
 
@@ -27,13 +28,16 @@ public:
     void setRepeat(QString r){repeat =r;}
     void setColor(QString c){color = c;}
 
-//private:
+public:
+    QDate date;
+private:
     QString eventName;
     QString startTime;
     QString endTime;
     QString locate;
     QString repeat;
     QString color;
+
 };
 
 #endif // MYEVENT_H
