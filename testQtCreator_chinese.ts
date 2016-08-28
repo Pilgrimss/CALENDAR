@@ -9,77 +9,137 @@
         <translation>Widget</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="42"/>
+=======
+        <location filename="widget.ui" line="38"/>
+>>>>>>> origin/master
         <source>Settings</source>
         <translation>Settings</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="57"/>
+=======
+        <location filename="widget.ui" line="53"/>
+>>>>>>> origin/master
         <source>Drag And Drop</source>
         <translation>Drag And Drop</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="66"/>
+=======
+        <location filename="widget.ui" line="62"/>
+>>>>>>> origin/master
         <source>Off</source>
         <translation>Off</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="76"/>
+=======
+        <location filename="widget.ui" line="72"/>
+>>>>>>> origin/master
         <source>On</source>
         <translation>On</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="85"/>
+=======
+        <location filename="widget.ui" line="81"/>
+>>>>>>> origin/master
         <source>First Day of the Week</source>
         <translation>First Day of the Week</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="93"/>
+=======
+        <location filename="widget.ui" line="89"/>
+>>>>>>> origin/master
         <source>Monday</source>
         <translation>Monday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="98"/>
+=======
+        <location filename="widget.ui" line="94"/>
+>>>>>>> origin/master
         <source>Tuesday</source>
         <translation>Tuesday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="103"/>
+=======
+        <location filename="widget.ui" line="99"/>
+>>>>>>> origin/master
         <source>Wednsday</source>
         <translation>Wednsday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="108"/>
+=======
+        <location filename="widget.ui" line="104"/>
+>>>>>>> origin/master
         <source>Thursday</source>
         <translation>Thursday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="113"/>
+=======
+        <location filename="widget.ui" line="109"/>
+>>>>>>> origin/master
         <source>Firday</source>
         <translation>Firday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="118"/>
+=======
+        <location filename="widget.ui" line="114"/>
+>>>>>>> origin/master
         <source>Saturday</source>
         <translation>Saturday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="123"/>
+=======
+        <location filename="widget.ui" line="119"/>
+>>>>>>> origin/master
         <source>Sunday</source>
         <translation>Sunday</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="131"/>
+=======
+        <location filename="widget.ui" line="127"/>
+>>>>>>> origin/master
         <source>Language</source>
         <translation>Language</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="144"/>
+=======
+        <location filename="widget.ui" line="137"/>
+>>>>>>> origin/master
         <source>Chinese</source>
         <translation>Chinese</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.ui" line="139"/>
+=======
+        <location filename="widget.ui" line="142"/>
+>>>>>>> origin/master
         <source>English</source>
         <translation>English</translation>
     </message>
@@ -129,28 +189,49 @@
         <translation></translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.cpp" line="87"/>
         <location filename="widget.cpp" line="190"/>
+=======
+        <location filename="widget.cpp" line="84"/>
+        <location filename="widget.cpp" line="187"/>
+>>>>>>> origin/master
         <source>OnlyOnce</source>
         <translation>OnlyOnce</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.cpp" line="90"/>
+=======
+        <location filename="widget.cpp" line="87"/>
+>>>>>>> origin/master
         <source>EveryDay</source>
         <translation>EveryDay</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.cpp" line="94"/>
+=======
+        <location filename="widget.cpp" line="91"/>
+>>>>>>> origin/master
         <source>EveryWeek</source>
         <translation>EveryWeek</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.cpp" line="98"/>
+=======
+        <location filename="widget.cpp" line="95"/>
+>>>>>>> origin/master
         <source>EveryMonth</source>
         <translation>EveryMonth</translation>
     </message>
     <message>
+<<<<<<< HEAD
         <location filename="widget.cpp" line="102"/>
+=======
+        <location filename="widget.cpp" line="99"/>
+>>>>>>> origin/master
         <source>EveryYear</source>
         <translation>EveryYear</translation>
     </message>

@@ -62,7 +62,6 @@ void myCalendar::paintCell(QPainter *painter, const QRect &rect, const QDate &da
        {
                brush.setColor (Qt::cyan);
        }
-
        QTextCharFormat cf = this->dateTextFormat(it.key());
        if(cf.background ().color() == brush.color ())
            return;

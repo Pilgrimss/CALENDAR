@@ -1,6 +1,11 @@
 <RCC>
     <qresource prefix="/qm">
+<<<<<<< HEAD
         <file>testQtCreator_chinese.qm</file>
         <file>testQtCreator_english.qm</file>
+=======
+        <file>testQtCreator_english.qm</file>
+        <file>testQtCreator_chinese.qm</file>
+>>>>>>> origin/master
     </qresource>
 </RCC>

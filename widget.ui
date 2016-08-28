@@ -13,8 +13,8 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_3">
-   <item>
+  <layout class="QGridLayout" name="gridLayout_2">
+   <item row="0" column="0">
     <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QTabWidget" name="tabWidget">
@@ -25,7 +25,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>0</number>
        </property>
        <property name="elideMode">
         <enum>Qt::ElideLeft</enum>
@@ -37,128 +37,116 @@
         <attribute name="title">
          <string>Settings</string>
         </attribute>
-        <widget class="QWidget" name="widget" native="true">
+        <widget class="QWidget" name="verticalLayoutWidget">
          <property name="geometry">
           <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>171</width>
-           <height>81</height>
+           <x>10</x>
+           <y>20</y>
+           <width>191</width>
+           <height>241</height>
           </rect>
          </property>
-         <widget class="QLabel" name="label">
-          <property name="geometry">
-           <rect>
-            <x>30</x>
-            <y>10</y>
-            <width>101</width>
-            <height>16</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Drag And Drop</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="OnRadiobutton">
-          <property name="geometry">
-           <rect>
-            <x>20</x>
-            <y>40</y>
-            <width>100</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>On</string>
-          </property>
-         </widget>
-         <widget class="QRadioButton" name="OffRadioButton">
-          <property name="geometry">
-           <rect>
-            <x>80</x>
-            <y>40</y>
-            <width>100</width>
-            <height>20</height>
-           </rect>
-          </property>
-          <property name="text">
-           <string>Off</string>
-          </property>
-          <property name="checked">
-           <bool>true</bool>
-          </property>
-         </widget>
-        </widget>
-        <widget class="QComboBox" name="comboBox">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>130</y>
-           <width>104</width>
-           <height>26</height>
-          </rect>
-         </property>
-         <item>
-          <property name="text">
-           <string>Monday</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Tuesday</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Wednsday</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Thursday</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Firday</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Saturday</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Sunday</string>
-          </property>
-         </item>
-        </widget>
-        <widget class="QLabel" name="label_2">
-         <property name="geometry">
-          <rect>
-           <x>18</x>
-           <y>100</y>
-           <width>141</width>
-           <height>20</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>First Day of the Week</string>
-         </property>
-        </widget>
-        <widget class="QLabel" name="label_3">
-         <property name="geometry">
-          <rect>
-           <x>20</x>
-           <y>180</y>
-           <width>59</width>
-           <height>16</height>
-          </rect>
-         </property>
-         <property name="text">
-          <string>Language</string>
-         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_3">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Drag And Drop</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_2">
+            <item>
+             <widget class="QRadioButton" name="OffRadioButton">
+              <property name="text">
+               <string>Off</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QRadioButton" name="OnRadiobutton">
+              <property name="text">
+               <string>On</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>First Day of the Week</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="comboBox">
+            <item>
+             <property name="text">
+              <string>Monday</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Tuesday</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Wednsday</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Thursday</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Firday</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Saturday</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Sunday</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Language</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <item>
+             <widget class="QComboBox" name="LanguageComboBox">
+              <item>
+               <property name="text">
+                <string>English</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Chinese</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
         </widget>
         <widget class="QPushButton" name="pushButton">
          <property name="geometry">

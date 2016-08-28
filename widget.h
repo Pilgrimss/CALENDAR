@@ -66,11 +66,15 @@ private slots:
 
     void on_dateEdit_dateChanged(const QDate &date);
 
+<<<<<<< HEAD
     void on_pushButton_clicked();
 
 
 
     void on_radioButton_toggled(bool checked);
+=======
+    void on_LanguageComboBox_currentIndexChanged(int index);
+>>>>>>> origin/master
 
 public slots:
     void addNote(const QString);
