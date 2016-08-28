@@ -9,16 +9,21 @@
 #ifndef UI_WIDGET_H
 #define UI_WIDGET_H
 
+#include <QtCore/QDate>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QDateEdit>
+#include <QtWidgets/QGridLayout>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QTabWidget>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include <displaylistwidget.h>
 #include <mycalendar.h>
@@ -28,6 +33,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
+    QHBoxLayout *horizontalLayout_3;
+    QHBoxLayout *horizontalLayout_2;
     QTabWidget *tabWidget;
     QWidget *setTab;
     QWidget *widget;
@@ -41,11 +48,18 @@ public:
     QWidget *weekTab;
     QWidget *monthTab;
     myCalendar *calendar;
-    QLabel *eventLabel;
     QWidget *widget_2;
+    QWidget *verticalLayoutWidget_2;
+    QVBoxLayout *verticalLayout_2;
+    QWidget *verticalLayoutWidget;
+    QVBoxLayout *verticalLayout;
+    QGridLayout *gridLayout;
+    QLabel *label_4;
+    QDateEdit *dateEdit;
     DisplayListWidget *displayList;
-    QPushButton *editButton;
+    QHBoxLayout *horizontalLayout;
     QPushButton *clearButton;
+    QPushButton *editButton;
     QPushButton *deleteButton;
     QWidget *yearTab;
 
@@ -53,10 +67,16 @@ public:
     {
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QStringLiteral("Widget"));
-        Widget->resize(620, 418);
+        Widget->resize(765, 585);
+        horizontalLayout_3 = new QHBoxLayout(Widget);
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         tabWidget = new QTabWidget(Widget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setGeometry(QRect(0, 0, 621, 421));
         tabWidget->setMaximumSize(QSize(621, 461));
         tabWidget->setTabPosition(QTabWidget::North);
         tabWidget->setTabShape(QTabWidget::Rounded);
@@ -97,7 +117,7 @@ public:
         monthTab->setObjectName(QStringLiteral("monthTab"));
         calendar = new myCalendar(monthTab);
         calendar->setObjectName(QStringLiteral("calendar"));
-        calendar->setGeometry(QRect(180, 0, 431, 401));
+        calendar->setGeometry(QRect(230, 0, 431, 391));
         QFont font;
         font.setPointSize(10);
         font.setItalic(false);
@@ -110,44 +130,83 @@ public:
 ""));
         calendar->setInputMethodHints(Qt::ImhNone);
         calendar->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
-        eventLabel = new QLabel(monthTab);
-        eventLabel->setObjectName(QStringLiteral("eventLabel"));
-        eventLabel->setGeometry(QRect(-2, 0, 181, 71));
-        QFont font1;
-        font1.setPointSize(36);
-        font1.setBold(false);
-        font1.setItalic(true);
-        font1.setWeight(50);
-        eventLabel->setFont(font1);
-        eventLabel->setStyleSheet(QLatin1String("eventLabel{\n"
-"background-colour:rgb(255, 255, 255),\n"
-"colour: rgba(0, 128, 255, 147)\n"
-"\n"
-"}"));
-        eventLabel->setFrameShape(QFrame::Panel);
-        eventLabel->setFrameShadow(QFrame::Sunken);
-        eventLabel->setLineWidth(0);
-        eventLabel->setMidLineWidth(0);
-        eventLabel->setTextFormat(Qt::PlainText);
         widget_2 = new QWidget(monthTab);
         widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(0, 80, 181, 311));
-        displayList = new DisplayListWidget(widget_2);
+        widget_2->setGeometry(QRect(230, 40, 181, 311));
+        verticalLayoutWidget_2 = new QWidget(widget_2);
+        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
+        verticalLayoutWidget_2->setGeometry(QRect(0, 11, 231, 435));
+        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        verticalLayoutWidget = new QWidget(monthTab);
+        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
+        verticalLayoutWidget->setGeometry(QRect(0, 0, 229, 433));
+        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        gridLayout = new QGridLayout();
+        gridLayout->setSpacing(6);
+        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+
+        verticalLayout->addLayout(gridLayout);
+
+        label_4 = new QLabel(verticalLayoutWidget);
+        label_4->setObjectName(QStringLiteral("label_4"));
+        QFont font1;
+        font1.setPointSize(27);
+        font1.setItalic(true);
+        label_4->setFont(font1);
+
+        verticalLayout->addWidget(label_4);
+
+        dateEdit = new QDateEdit(verticalLayoutWidget);
+        dateEdit->setObjectName(QStringLiteral("dateEdit"));
+        dateEdit->setCurrentSectionIndex(0);
+        dateEdit->setDate(QDate(1900, 1, 1));
+
+        verticalLayout->addWidget(dateEdit);
+
+        displayList = new DisplayListWidget(verticalLayoutWidget);
         displayList->setObjectName(QStringLiteral("displayList"));
-        displayList->setGeometry(QRect(0, 0, 181, 251));
-        editButton = new QPushButton(widget_2);
-        editButton->setObjectName(QStringLiteral("editButton"));
-        editButton->setGeometry(QRect(0, 250, 81, 32));
-        clearButton = new QPushButton(widget_2);
+
+        verticalLayout->addWidget(displayList);
+
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        clearButton = new QPushButton(verticalLayoutWidget);
         clearButton->setObjectName(QStringLiteral("clearButton"));
-        clearButton->setGeometry(QRect(40, 280, 91, 32));
-        deleteButton = new QPushButton(widget_2);
+
+        horizontalLayout->addWidget(clearButton);
+
+        editButton = new QPushButton(verticalLayoutWidget);
+        editButton->setObjectName(QStringLiteral("editButton"));
+
+        horizontalLayout->addWidget(editButton);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+        deleteButton = new QPushButton(verticalLayoutWidget);
         deleteButton->setObjectName(QStringLiteral("deleteButton"));
-        deleteButton->setGeometry(QRect(100, 250, 81, 32));
+
+        verticalLayout->addWidget(deleteButton);
+
         tabWidget->addTab(monthTab, QString());
         yearTab = new QWidget();
         yearTab->setObjectName(QStringLiteral("yearTab"));
         tabWidget->addTab(yearTab, QString());
+
+        horizontalLayout_2->addWidget(tabWidget);
+
+
+        horizontalLayout_3->addLayout(horizontalLayout_2);
+
 
         retranslateUi(Widget);
 
@@ -178,9 +237,10 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(setTab), QApplication::translate("Widget", "Settings", 0));
         tabWidget->setTabText(tabWidget->indexOf(dayTab), QApplication::translate("Widget", "Day", 0));
         tabWidget->setTabText(tabWidget->indexOf(weekTab), QApplication::translate("Widget", "Week", 0));
-        eventLabel->setText(QApplication::translate("Widget", "   MyEvent", 0));
-        editButton->setText(QApplication::translate("Widget", "edit", 0));
+        label_4->setText(QApplication::translate("Widget", "Turn To", 0));
+        dateEdit->setDisplayFormat(QApplication::translate("Widget", "yy/M/d", 0));
         clearButton->setText(QApplication::translate("Widget", "clear", 0));
+        editButton->setText(QApplication::translate("Widget", "edit", 0));
         deleteButton->setText(QApplication::translate("Widget", "delete", 0));
         tabWidget->setTabText(tabWidget->indexOf(monthTab), QApplication::translate("Widget", "Month", 0));
         tabWidget->setTabText(tabWidget->indexOf(yearTab), QApplication::translate("Widget", "Year", 0));

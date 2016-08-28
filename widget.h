@@ -62,6 +62,10 @@ private slots:
 
     void on_editButton_clicked();
 
+    void on_comboBox_currentIndexChanged(int index);
+
+    void on_dateEdit_dateChanged(const QDate &date);
+
 public slots:
     void addNote(const QString);
     void addEvent(myEvent);

@@ -58,6 +58,7 @@ void Widget::dropEvent(QDropEvent *event)
 void Widget::initDisplayList()
 {
     ui->displayList->clear ();
+    qDebug() << "mytodolist初始化有错误" << endl;
     for (int i = 0; i < dataBase->mytodolist->count(); i++)
     {
         ui->displayList->addItem (dataBase->mytodolist->at (i));
@@ -122,7 +123,7 @@ bool Widget::readFile(const QString &fileName)
     if(file.open(QIODevice::ReadOnly)) {
         r = true;
     }
-   addNote (fileName);
+   addNote(fileName);
     return r;
 }
 //设置Drag&Drop按钮
@@ -163,6 +164,7 @@ void Widget::on_calendar_clicked(const QDate &date)
 //添加事件名称到todolist
 void Widget::addNote(QString s)
 {
+    qDebug() << "无法addnote" << endl;
     //initDataBase (ui->calendar->selectedDate ());
     dataBase->mytodolist->push_back(s);
     initDisplayList ();
@@ -171,13 +173,20 @@ void Widget::addNote(QString s)
 //添加事件详细信息到myEvent
 void Widget::addEvent(myEvent event)
 {
-    qDebug() << "toString" << ui->calendar->selectedDate ().toString ();
-    //dataBase->myEventList->push_back(event);
+    //此处加入event的QDate信息
+    event.date = ui->calendar->selectedDate ();
+    dataBase->myEventList->push_back(event);
+    ui->calendar->paintdates.insert (ui->calendar->selectedDate (),event.getColor());
+
+//********************************
+  //如果设置为重复事件，就将其加到repeatEventList里面
     if(!(event.getRepeat () == tr("OnlyOnce")))
     {
         dataBase->repeatEventList->push_back (event);
         dataBase->repeatToDoList->push_back (event.getEventName ());
     }
+//*************************************
+
 }
 
 
@@ -186,6 +195,7 @@ void Widget::on_clearButton_clicked()
 {
     ui->displayList->clear ();
     //判断一下，把今天的循环事件删去；
+//*********************************
     for(int i = 0; i < dataBase->repeatEventList->size(); i++)
     {
         myEvent temp = dataBase->repeatEventList->at(i);
@@ -195,6 +205,7 @@ void Widget::on_clearButton_clicked()
             dataBase->repeatToDoList->remove (i);
         }
     }
+//**********************************
     dataBase->myEventList = new QVector<myEvent>;
     dataBase->mytodolist = new QVector<QString>;
 }
@@ -202,11 +213,10 @@ void Widget::on_clearButton_clicked()
 //删除
 void Widget::on_deleteButton_clicked()
 { 
-   //qDebug() << "index:" << index << endl;
    if(index > -1)
    {
-    //qDebug() << "XXXXXXX " << ui->displayList->takeItem(index) << endl;
-    myEvent temp = dataBase->myEventList->takeAt (index);
+    myEvent temp = dataBase->myEventList->takeAt(index);
+ //******************************************************
     if(temp.getRepeat() != "OnlyOnce")
     {
         for(int i = 0; i < dataBase->repeatEventList->size(); i++)
@@ -218,6 +228,7 @@ void Widget::on_deleteButton_clicked()
             }
         }
     }
+//********************************************************
     ui->displayList->takeItem(index);
     //dataBase->myEventList->remove(index);
     dataBase->mytodolist->remove (index);
@@ -239,7 +250,6 @@ void Widget::on_displayList_itemActivated(QListWidgetItem *item)
 //编辑
 void Widget::on_editButton_clicked()
 {
-    //qDebug() << "index:" << index << endl;
     note = new noteDialog();
     myEvent *tempEvent = new myEvent(dataBase->myEventList->at (index));
     note->initNoteDialog(tempEvent);
@@ -249,6 +259,7 @@ void Widget::on_editButton_clicked()
     if(note->exec() == QDialog::Accepted)
     {
       myEvent temp = dataBase->myEventList->takeAt(index);
+//*****************************************
       if(temp.getRepeat () != "OnlyOnce")
       {
           for(int i = 0; i < dataBase->repeatEventList->size(); i++)
@@ -260,10 +271,44 @@ void Widget::on_editButton_clicked()
               }
           }
       }
+//***********************************************
       dataBase->mytodolist->takeAt (index);
       initDisplayList ();
     }
 
     ui->deleteButton->setEnabled (false);
     ui->editButton->setEnabled (false);
+}
+
+void Widget::on_comboBox_currentIndexChanged(int index)
+{
+    Qt::DayOfWeek day;
+    switch (index + 1) {
+    case 1:
+        ui->calendar->setFirstDayOfWeek (Qt::Monday);
+        break;
+    case 2:
+        ui->calendar->setFirstDayOfWeek (Qt::Tuesday);
+        break;
+    case 3:
+        ui->calendar->setFirstDayOfWeek (Qt::Wednesday);
+        break;
+    case 4:
+        ui->calendar->setFirstDayOfWeek (Qt::Thursday);
+        break;
+    case 5:
+        ui->calendar->setFirstDayOfWeek (Qt::Friday);
+        break;
+    case 6:
+        ui->calendar->setFirstDayOfWeek (Qt::Saturday);
+        break;
+    default:
+        ui->calendar->setFirstDayOfWeek (Qt::Sunday);
+        break;
+    }
+}
+
+void Widget::on_dateEdit_dateChanged(const QDate &date)
+{
+    ui->calendar->setDate (date);
 }

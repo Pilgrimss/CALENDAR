@@ -32,19 +32,44 @@ QColor myCalendar::getColor()
    return (m_outlinePen.color());
 }
 
-
+void myCalendar::setFormat(const QDate& date, const QTextCharFormat &format)
+{
+    setDateTextFormat(date,format);
+}
 
 //日历框输出
 
 void myCalendar::paintCell(QPainter *painter, const QRect &rect, const QDate &date) const
 {
    QCalendarWidget::paintCell(painter, rect, date);
-    if(date == selectedDate ())
-    {
-          painter->setPen(m_outlinePen);
-          painter->setBrush(m_transparentBrush);
-          painter->drawRect(rect.adjusted(0, 0, -1, -1));
-    }
+   QMap<QDate, QString>::const_iterator it = paintdates.constBegin();
+
+   for (; it != paintdates.end(); it++ )
+   {
+       QBrush brush;
+       if(it.value()== tr("Red(Urgent)"))
+       {
+               brush.setColor (Qt::red);
+       }
+       if(it.value() == tr("Blue(Life)"))
+       {
+               brush.setColor (Qt::blue);
+       }
+       if(it.value() == tr("Cyan(Work)"))
+       {
+               brush.setColor (Qt::cyan);
+       }
+
+       QTextCharFormat cf = this->dateTextFormat(it.key());
+       cf.setBackground(brush);
+       painter->setPen(m_outlinePen);
+       painter->setBrush(m_transparentBrush);
+       painter->drawRect(rect.adjusted(0, 0, -1, -1));
+       qDebug() << it.key() << endl;
+       connect(this,SIGNAL(passpainter(const QDate &date, const QTextCharFormat &format) const ),this,SLOT(setFormat(const QDate& date, const QTextCharFormat &format)));
+       emit passpainter(it.key (),cf);
+       //setDateTextFormat(it.key(),cf);
+   }
 }
 
 
