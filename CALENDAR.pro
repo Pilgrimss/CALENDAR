@@ -35,10 +35,14 @@ HEADERS  += \
 FORMS    += widget.ui \
     notedialog.ui
 
-TRANSLATIONS += testQtCreator_english.ts
+TRANSLATIONS += testQtCreator_english.ts\
+                testQtCreator_chinese.ts
 
 DESTDIR     += $$PWD/bin
 OBJECTS_DIR += $$PWD/tmp
 MOC_DIR     += $$PWD/tmp
 RCC_DIR     += $$PWD/tmp
+
+RESOURCES += \
+    language.qrc
 

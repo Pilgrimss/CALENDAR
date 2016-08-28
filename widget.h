@@ -66,6 +66,8 @@ private slots:
 
     void on_dateEdit_dateChanged(const QDate &date);
 
+    void on_LanguageComboBox_currentIndexChanged(int index);
+
 public slots:
     void addNote(const QString);
     void addEvent(myEvent);

@@ -316,3 +316,22 @@ void Widget::on_dateEdit_dateChanged(const QDate &date)
 {
     ui->calendar->setDate (date);
 }
+
+
+void Widget::on_LanguageComboBox_currentIndexChanged(int index)
+{
+    qDebug()<<"Widget::onLAnBOXCURR()";
+    /*QTranslator *qtTranslator = new QTranslator(qApp);
+    switch (index) {
+    case 0:
+        //qDebug() << qtTranslator->load(":/qm/testQtCreator_chinese.qm");
+        break;
+    default:
+        //qDebug() << qtTranslator->load(":/qm/testQtCreator_english.qm");
+        break;
+    }
+    qApp->installTranslator(qtTranslator);
+    ui->retranslateUi (this);*/
+
+}
+
