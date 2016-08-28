@@ -604,6 +604,7 @@ distdir: FORCE
 	$(COPY_FILE) --parents ../notedialog.h ../mycalendar.h ../mycalendar.h ../widget.h ../myevent.h ../user.h ../database.h ../displaylistwidget.h $(DISTDIR)/
 	$(COPY_FILE) --parents ../main.cpp ../widget.cpp ../notedialog.cpp ../mycalendar.cpp ../myevent.cpp ../user.cpp ../database.cpp ../displaylistwidget.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../widget.ui ../notedialog.ui $(DISTDIR)/
+	$(COPY_FILE) --parents testQtCreator_english.ts $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -1509,7 +1510,17 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../database.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QFileInfo \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qfileinfo.h \
-		ui_widget.h
+		ui_widget.h \
+		../displaylistwidget.h \
+		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QListWidget \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMimeData \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmimedata.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QPoint \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qpoint.h \
+		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QMouseEvent \
+		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QApplication \
+		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qapplication.h \
+		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QDrag
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../tmp/widget.o ../widget.cpp
 
 ../tmp/notedialog.o: ../notedialog.cpp ../notedialog.h \

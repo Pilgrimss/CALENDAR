@@ -35,6 +35,8 @@ HEADERS  += \
 FORMS    += widget.ui \
     notedialog.ui
 
+TRANSLATIONS += testQtCreator_english.ts
+
 DESTDIR     += $$PWD/bin
 OBJECTS_DIR += $$PWD/tmp
 MOC_DIR     += $$PWD/tmp
