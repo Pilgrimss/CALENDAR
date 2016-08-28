@@ -13,17 +13,11 @@
   <property name="windowTitle">
    <string>Widget</string>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout_3">
+  <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <layout class="QHBoxLayout" name="horizontalLayout_5">
      <item>
       <widget class="QTabWidget" name="tabWidget">
-       <property name="maximumSize">
-        <size>
-         <width>621</width>
-         <height>461</height>
-        </size>
-       </property>
        <property name="tabPosition">
         <enum>QTabWidget::North</enum>
        </property>
@@ -181,134 +175,108 @@
         <attribute name="title">
          <string>Month</string>
         </attribute>
-        <widget class="myCalendar" name="calendar">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>0</y>
-           <width>431</width>
-           <height>391</height>
-          </rect>
-         </property>
-         <property name="font">
-          <font>
-           <pointsize>10</pointsize>
-           <italic>false</italic>
-           <underline>false</underline>
-           <stylestrategy>PreferDefault</stylestrategy>
-          </font>
-         </property>
-         <property name="cursor">
-          <cursorShape>ArrowCursor</cursorShape>
-         </property>
-         <property name="contextMenuPolicy">
-          <enum>Qt::DefaultContextMenu</enum>
-         </property>
-         <property name="styleSheet">
-          <string notr="true">selection-color: rgba(128, 0, 255, 151);
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <layout class="QGridLayout" name="gridLayout"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="font">
+              <font>
+               <pointsize>27</pointsize>
+               <italic>true</italic>
+              </font>
+             </property>
+             <property name="text">
+              <string>Turn To</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QDateEdit" name="dateEdit">
+             <property name="displayFormat">
+              <string>yy/M/d</string>
+             </property>
+             <property name="currentSectionIndex">
+              <number>0</number>
+             </property>
+             <property name="date">
+              <date>
+               <year>1900</year>
+               <month>1</month>
+               <day>1</day>
+              </date>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="DisplayListWidget" name="displayList"/>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout">
+             <item>
+              <widget class="QPushButton" name="clearButton">
+               <property name="text">
+                <string>clear</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="editButton">
+               <property name="text">
+                <string>edit</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QPushButton" name="deleteButton">
+             <property name="text">
+              <string>delete</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QWidget" name="widget_2" native="true"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_2">
+           <item>
+            <widget class="myCalendar" name="calendar">
+             <property name="font">
+              <font>
+               <pointsize>10</pointsize>
+               <italic>false</italic>
+               <underline>false</underline>
+               <stylestrategy>PreferDefault</stylestrategy>
+              </font>
+             </property>
+             <property name="cursor">
+              <cursorShape>ArrowCursor</cursorShape>
+             </property>
+             <property name="contextMenuPolicy">
+              <enum>Qt::DefaultContextMenu</enum>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">selection-color: rgba(128, 0, 255, 151);
 </string>
-         </property>
-         <property name="inputMethodHints">
-          <set>Qt::ImhNone</set>
-         </property>
-         <property name="verticalHeaderFormat">
-          <enum>QCalendarWidget::NoVerticalHeader</enum>
-         </property>
-        </widget>
-        <widget class="QWidget" name="widget_2" native="true">
-         <property name="geometry">
-          <rect>
-           <x>230</x>
-           <y>40</y>
-           <width>181</width>
-           <height>311</height>
-          </rect>
-         </property>
-         <widget class="QWidget" name="verticalLayoutWidget_2">
-          <property name="geometry">
-           <rect>
-            <x>0</x>
-            <y>11</y>
-            <width>231</width>
-            <height>435</height>
-           </rect>
-          </property>
-          <layout class="QVBoxLayout" name="verticalLayout_2"/>
-         </widget>
-        </widget>
-        <widget class="QWidget" name="verticalLayoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>229</width>
-           <height>433</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <item>
-           <layout class="QGridLayout" name="gridLayout"/>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_4">
-            <property name="font">
-             <font>
-              <pointsize>27</pointsize>
-              <italic>true</italic>
-             </font>
-            </property>
-            <property name="text">
-             <string>Turn To</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QDateEdit" name="dateEdit">
-            <property name="displayFormat">
-             <string>yy/M/d</string>
-            </property>
-            <property name="currentSectionIndex">
-             <number>0</number>
-            </property>
-            <property name="date">
-             <date>
-              <year>1900</year>
-              <month>1</month>
-              <day>1</day>
-             </date>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="DisplayListWidget" name="displayList"/>
-          </item>
-          <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <item>
-             <widget class="QPushButton" name="clearButton">
-              <property name="text">
-               <string>clear</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="editButton">
-              <property name="text">
-               <string>edit</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item>
-           <widget class="QPushButton" name="deleteButton">
-            <property name="text">
-             <string>delete</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+             </property>
+             <property name="inputMethodHints">
+              <set>Qt::ImhNone</set>
+             </property>
+             <property name="verticalHeaderFormat">
+              <enum>QCalendarWidget::NoVerticalHeader</enum>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
        </widget>
        <widget class="QWidget" name="yearTab">
         <attribute name="title">

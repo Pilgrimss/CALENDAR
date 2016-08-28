@@ -21,8 +21,8 @@ void myDataBase::readBase(QFile* file, QVector<myEvent>* eventList, QVector<QStr
     {
         for(int index = 0;data != "interval" && !in.atEnd(); index++)
         {
-
-            switch(index % 6)
+            qDebug() << "%%%%%%" << data;
+            switch(index % 7)
             {
                 case 0:
                 tempEvent.setEventName (data);
@@ -39,14 +39,12 @@ void myDataBase::readBase(QFile* file, QVector<myEvent>* eventList, QVector<QStr
                 case 4:
                 tempEvent.setRepeat (data);
                 break;
-                /*
                 case 5:
                 tempEvent.setColor (data);
-                break;*/
+                break;
                 default:
                 {
-                    tempEvent.setColor (data);
-                    //mydate = QDate::fromString (data);
+                    tempEvent.date = QDate::fromString (data);
                     eventList->push_back (tempEvent);
                     myEvent tempEvent = new myEvent();
                  }
@@ -104,7 +102,7 @@ void myDataBase::writeBase(QFile* file, QVector<myEvent>* eventList, QVector<QSt
         out<<eventList->at(i).getRepeat ()<< endl;
         out<<eventList->at(i).getColor ()<< endl;
         qDebug() << "%%%%%%%" << eventList->at(i).date.toString () << endl;
-        //out<<eventList->at(i).date.toString () << endl;
+        out<<eventList->at(i).date.toString () << endl;
     }
     out <<"interval"<<endl;
     for(int i = 0; i < todoList->size (); i++)

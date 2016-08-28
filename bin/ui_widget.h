@@ -33,8 +33,8 @@ QT_BEGIN_NAMESPACE
 class Ui_Widget
 {
 public:
-    QHBoxLayout *horizontalLayout_3;
-    QHBoxLayout *horizontalLayout_2;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_5;
     QTabWidget *tabWidget;
     QWidget *setTab;
     QWidget *widget;
@@ -47,11 +47,7 @@ public:
     QWidget *dayTab;
     QWidget *weekTab;
     QWidget *monthTab;
-    myCalendar *calendar;
-    QWidget *widget_2;
-    QWidget *verticalLayoutWidget_2;
-    QVBoxLayout *verticalLayout_2;
-    QWidget *verticalLayoutWidget;
+    QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
     QLabel *label_4;
@@ -61,6 +57,9 @@ public:
     QPushButton *clearButton;
     QPushButton *editButton;
     QPushButton *deleteButton;
+    QWidget *widget_2;
+    QVBoxLayout *verticalLayout_2;
+    myCalendar *calendar;
     QWidget *yearTab;
 
     void setupUi(QWidget *Widget)
@@ -68,16 +67,15 @@ public:
         if (Widget->objectName().isEmpty())
             Widget->setObjectName(QStringLiteral("Widget"));
         Widget->resize(765, 585);
-        horizontalLayout_3 = new QHBoxLayout(Widget);
-        horizontalLayout_3->setSpacing(6);
-        horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        verticalLayout_3 = new QVBoxLayout(Widget);
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setSpacing(6);
+        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         tabWidget = new QTabWidget(Widget);
         tabWidget->setObjectName(QStringLiteral("tabWidget"));
-        tabWidget->setMaximumSize(QSize(621, 461));
         tabWidget->setTabPosition(QTabWidget::North);
         tabWidget->setTabShape(QTabWidget::Rounded);
         tabWidget->setElideMode(Qt::ElideLeft);
@@ -115,63 +113,36 @@ public:
         tabWidget->addTab(weekTab, QString());
         monthTab = new QWidget();
         monthTab->setObjectName(QStringLiteral("monthTab"));
-        calendar = new myCalendar(monthTab);
-        calendar->setObjectName(QStringLiteral("calendar"));
-        calendar->setGeometry(QRect(230, 0, 431, 391));
-        QFont font;
-        font.setPointSize(10);
-        font.setItalic(false);
-        font.setUnderline(false);
-        font.setStyleStrategy(QFont::PreferDefault);
-        calendar->setFont(font);
-        calendar->setCursor(QCursor(Qt::ArrowCursor));
-        calendar->setContextMenuPolicy(Qt::DefaultContextMenu);
-        calendar->setStyleSheet(QLatin1String("selection-color: rgba(128, 0, 255, 151);\n"
-""));
-        calendar->setInputMethodHints(Qt::ImhNone);
-        calendar->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
-        widget_2 = new QWidget(monthTab);
-        widget_2->setObjectName(QStringLiteral("widget_2"));
-        widget_2->setGeometry(QRect(230, 40, 181, 311));
-        verticalLayoutWidget_2 = new QWidget(widget_2);
-        verticalLayoutWidget_2->setObjectName(QStringLiteral("verticalLayoutWidget_2"));
-        verticalLayoutWidget_2->setGeometry(QRect(0, 11, 231, 435));
-        verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        verticalLayoutWidget = new QWidget(monthTab);
-        verticalLayoutWidget->setObjectName(QStringLiteral("verticalLayoutWidget"));
-        verticalLayoutWidget->setGeometry(QRect(0, 0, 229, 433));
-        verticalLayout = new QVBoxLayout(verticalLayoutWidget);
+        horizontalLayout_4 = new QHBoxLayout(monthTab);
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
-        verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
         gridLayout = new QGridLayout();
         gridLayout->setSpacing(6);
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
 
         verticalLayout->addLayout(gridLayout);
 
-        label_4 = new QLabel(verticalLayoutWidget);
+        label_4 = new QLabel(monthTab);
         label_4->setObjectName(QStringLiteral("label_4"));
-        QFont font1;
-        font1.setPointSize(27);
-        font1.setItalic(true);
-        label_4->setFont(font1);
+        QFont font;
+        font.setPointSize(27);
+        font.setItalic(true);
+        label_4->setFont(font);
 
         verticalLayout->addWidget(label_4);
 
-        dateEdit = new QDateEdit(verticalLayoutWidget);
+        dateEdit = new QDateEdit(monthTab);
         dateEdit->setObjectName(QStringLiteral("dateEdit"));
         dateEdit->setCurrentSectionIndex(0);
         dateEdit->setDate(QDate(1900, 1, 1));
 
         verticalLayout->addWidget(dateEdit);
 
-        displayList = new DisplayListWidget(verticalLayoutWidget);
+        displayList = new DisplayListWidget(monthTab);
         displayList->setObjectName(QStringLiteral("displayList"));
 
         verticalLayout->addWidget(displayList);
@@ -179,12 +150,12 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(6);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        clearButton = new QPushButton(verticalLayoutWidget);
+        clearButton = new QPushButton(monthTab);
         clearButton->setObjectName(QStringLiteral("clearButton"));
 
         horizontalLayout->addWidget(clearButton);
 
-        editButton = new QPushButton(verticalLayoutWidget);
+        editButton = new QPushButton(monthTab);
         editButton->setObjectName(QStringLiteral("editButton"));
 
         horizontalLayout->addWidget(editButton);
@@ -192,20 +163,51 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        deleteButton = new QPushButton(verticalLayoutWidget);
+        deleteButton = new QPushButton(monthTab);
         deleteButton->setObjectName(QStringLiteral("deleteButton"));
 
         verticalLayout->addWidget(deleteButton);
+
+
+        horizontalLayout_4->addLayout(verticalLayout);
+
+        widget_2 = new QWidget(monthTab);
+        widget_2->setObjectName(QStringLiteral("widget_2"));
+
+        horizontalLayout_4->addWidget(widget_2);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        calendar = new myCalendar(monthTab);
+        calendar->setObjectName(QStringLiteral("calendar"));
+        QFont font1;
+        font1.setPointSize(10);
+        font1.setItalic(false);
+        font1.setUnderline(false);
+        font1.setStyleStrategy(QFont::PreferDefault);
+        calendar->setFont(font1);
+        calendar->setCursor(QCursor(Qt::ArrowCursor));
+        calendar->setContextMenuPolicy(Qt::DefaultContextMenu);
+        calendar->setStyleSheet(QLatin1String("selection-color: rgba(128, 0, 255, 151);\n"
+""));
+        calendar->setInputMethodHints(Qt::ImhNone);
+        calendar->setVerticalHeaderFormat(QCalendarWidget::NoVerticalHeader);
+
+        verticalLayout_2->addWidget(calendar);
+
+
+        horizontalLayout_4->addLayout(verticalLayout_2);
 
         tabWidget->addTab(monthTab, QString());
         yearTab = new QWidget();
         yearTab->setObjectName(QStringLiteral("yearTab"));
         tabWidget->addTab(yearTab, QString());
 
-        horizontalLayout_2->addWidget(tabWidget);
+        horizontalLayout_5->addWidget(tabWidget);
 
 
-        horizontalLayout_3->addLayout(horizontalLayout_2);
+        verticalLayout_3->addLayout(horizontalLayout_5);
 
 
         retranslateUi(Widget);

@@ -11,6 +11,7 @@ Widget::Widget(QWidget *parent) :
     ui->deleteButton->setEnabled (false);
     ui->editButton->setEnabled (false);
     QDir::setCurrent ("/Users/yingEos/Desktop/CALENDAR/");
+    setLayout (ui->horizontalLayout_5);
 }
 Widget::~Widget()
 {
@@ -58,7 +59,6 @@ void Widget::dropEvent(QDropEvent *event)
 void Widget::initDisplayList()
 {
     ui->displayList->clear ();
-    qDebug() << "mytodolist初始化有错误" << endl;
     for (int i = 0; i < dataBase->mytodolist->count(); i++)
     {
         ui->displayList->addItem (dataBase->mytodolist->at (i));
@@ -84,17 +84,21 @@ bool Widget::judgeRepeat(myEvent repeatEvent)
     if(signal == tr("OnlyOnce")) return false;
     qDebug() << "repeatEvent.date.dayOfWeek()" << repeatEvent.date.dayOfWeek() << endl;
     qDebug() << "dataBase->mydate.dayOfWeek ()" << dataBase->mydate.dayOfWeek () << endl;
+    if(signal == tr("EveryDay"))
+    {
+        return (repeatEvent.date < dataBase->mydate);
+    }
     if(signal == tr("EveryWeek"))
     {
         return (repeatEvent.date.dayOfWeek() ==dataBase->mydate.dayOfWeek ());
     }
     if(signal == tr("EveryMonth"))
     {
-        return (repeatEvent.date.daysInMonth () ==dataBase->mydate.daysInMonth ());
+        return (repeatEvent.date.day() ==dataBase->mydate.day());
     }
     if(signal == tr("EveryYear"))
     {
-        return (repeatEvent.date.daysInYear () == dataBase-> mydate.daysInYear ());
+        return (repeatEvent.date.day() == dataBase-> mydate.day() && repeatEvent.date.month() == dataBase-> mydate.month());
     }
 }
 //初始化database;

@@ -27,7 +27,7 @@ public:
     QVector <QString>* mytodolist;
     QDate mydate;
     QVector <myEvent> *repeatEventList;//存循环事件细节列表
-    QVector <QString>* repeatToDoList;//存循环事件列表
+    QVector <QString>* repeatToDoList;//存循环事件列表 
  };
 
 #endif // DATABASE_H

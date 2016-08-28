@@ -203,6 +203,7 @@ DIST          = ../../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		../.qmake.stash \
 		../../../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -384,6 +385,7 @@ Makefile: ../CALENDAR.pro ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf
 		../../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -543,6 +545,7 @@ Makefile: ../CALENDAR.pro ../../../Qt/5.7/clang_64/mkspecs/features/spec_pre.prf
 ../../../Qt/5.7/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.7/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.7/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.7/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.7/clang_64/mkspecs/features/default_pre.prf:
 ../../../Qt/5.7/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -744,6 +747,8 @@ compiler_moc_header_clean:
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		../notedialog.h \
 		../../../Qt/5.7/clang_64/bin/moc
 	/Users/yingEos/Qt/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/yingEos/Qt/5.7/clang_64/mkspecs/macx-clang -I/Users/yingEos/Desktop/CALENDAR -I/Users/yingEos/Qt/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/yingEos/Qt/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/yingEos/Qt/5.7/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/yingEos/Qt/5.7/clang_64/lib ../notedialog.h -o ../tmp/moc_notedialog.cpp
@@ -873,7 +878,10 @@ compiler_moc_header_clean:
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../myevent.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
 		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMap \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmap.h \
 		../mycalendar.h \
 		../../../Qt/5.7/clang_64/bin/moc
 	/Users/yingEos/Qt/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/yingEos/Qt/5.7/clang_64/mkspecs/macx-clang -I/Users/yingEos/Desktop/CALENDAR -I/Users/yingEos/Qt/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/yingEos/Qt/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/yingEos/Qt/5.7/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/yingEos/Qt/5.7/clang_64/lib ../mycalendar.h -o ../tmp/moc_mycalendar.cpp
@@ -1003,7 +1011,10 @@ compiler_moc_header_clean:
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../myevent.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
 		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMap \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmap.h \
 		../mycalendar.h \
 		../../../Qt/5.7/clang_64/bin/moc
 	/Users/yingEos/Qt/5.7/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/yingEos/Qt/5.7/clang_64/mkspecs/macx-clang -I/Users/yingEos/Desktop/CALENDAR -I/Users/yingEos/Qt/5.7/clang_64/lib/QtWidgets.framework/Headers -I/Users/yingEos/Qt/5.7/clang_64/lib/QtGui.framework/Headers -I/Users/yingEos/Qt/5.7/clang_64/lib/QtCore.framework/Headers -I. -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1 -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/7.3.0/include -I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include -I/usr/include -I'/System/Library/Frameworks (framework directory)' -I'/Library/Frameworks (framework directory)' -F/Users/yingEos/Qt/5.7/clang_64/lib ../mycalendar.h -o ../tmp/moc_mycalendar.cpp
@@ -1134,8 +1145,10 @@ compiler_moc_header_clean:
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../myevent.h \
-		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMap \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmap.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QList \
@@ -1331,8 +1344,10 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../myevent.h \
-		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMap \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmap.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QList \
@@ -1477,8 +1492,10 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../myevent.h \
-		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMap \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmap.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QListWidgetItem \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qlistwidget.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QList \
@@ -1611,6 +1628,8 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qobject.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
 		ui_notedialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../tmp/notedialog.o ../notedialog.cpp
 
@@ -1740,7 +1759,10 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDebug \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdebug.h \
 		../myevent.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
 		../../../Qt/5.7/clang_64/lib/QtGui.framework/Headers/QPainter \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QMap \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qmap.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QtWidgets \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qaccessiblewidget.h \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qcolordialog.h \
@@ -1877,7 +1899,9 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/QWidget \
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QString \
-		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qstring.h
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qstring.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdatetime.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ../tmp/myevent.o ../myevent.cpp
 
 ../tmp/user.o: ../user.cpp ../user.h
@@ -1891,10 +1915,10 @@ compiler_clean: compiler_moc_header_clean compiler_uic_clean
 		../../../Qt/5.7/clang_64/lib/QtWidgets.framework/Headers/qwidget.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QString \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qstring.h \
-		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QVector \
-		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QDate \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qdatetime.h \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QVector \
+		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qvector.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QFile \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/qfile.h \
 		../../../Qt/5.7/clang_64/lib/QtCore.framework/Headers/QTextStream \
