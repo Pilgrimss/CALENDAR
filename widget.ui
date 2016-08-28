@@ -25,7 +25,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>3</number>
+        <number>0</number>
        </property>
        <property name="elideMode">
         <enum>Qt::ElideLeft</enum>
@@ -160,6 +160,32 @@
           <string>Language</string>
          </property>
         </widget>
+        <widget class="QPushButton" name="pushButton">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>210</y>
+           <width>101</width>
+           <height>31</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>中文版</string>
+         </property>
+        </widget>
+        <widget class="QRadioButton" name="radioButton">
+         <property name="geometry">
+          <rect>
+           <x>20</x>
+           <y>260</y>
+           <width>100</width>
+           <height>20</height>
+          </rect>
+         </property>
+         <property name="text">
+          <string>FixedButton</string>
+         </property>
+        </widget>
        </widget>
        <widget class="QWidget" name="dayTab">
         <attribute name="title">
@@ -224,6 +250,13 @@
               </widget>
              </item>
              <item>
+              <widget class="QPushButton" name="deleteButton">
+               <property name="text">
+                <string>delete</string>
+               </property>
+              </widget>
+             </item>
+             <item>
               <widget class="QPushButton" name="editButton">
                <property name="text">
                 <string>edit</string>
@@ -231,13 +264,6 @@
               </widget>
              </item>
             </layout>
-           </item>
-           <item>
-            <widget class="QPushButton" name="deleteButton">
-             <property name="text">
-              <string>delete</string>
-             </property>
-            </widget>
            </item>
           </layout>
          </item>

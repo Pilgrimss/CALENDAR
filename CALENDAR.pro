@@ -40,3 +40,8 @@ OBJECTS_DIR += $$PWD/tmp
 MOC_DIR     += $$PWD/tmp
 RCC_DIR     += $$PWD/tmp
 
+TRANSLATIONS += testQtCreator_english.ts
+
+RESOURCES += \
+    qm.qrc
+
