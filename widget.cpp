@@ -13,7 +13,7 @@ Widget::Widget(QWidget *parent) :
     ui->deleteButton->setEnabled (false);
     ui->editButton->setEnabled (false);
     setLayout (ui->horizontalLayout_5);
-    setAttribute (Qt::WA_TransparentForMouseEvents);
+    //setAttribute (Qt::WA_TransparentForMouseEvents);
     setAttribute (Qt::WA_TranslucentBackground);
     qDebug() << "can't work " << endl;
 }
@@ -333,33 +333,14 @@ void Widget::on_pushButton_clicked()
 }
 
 
-/*
-void Widget::on_checkBox_2_toggled(bool checked)//固定
-{
-    qDebug()<< checked;
-    if(checked)this->moveable = false;
 
-
-    if(checked)
-    {
-        ui->cale->setAttribute(Qt::WA_TransparentForMouseEvents,true);
-        setWindowFlags(Qt::FramelessWindowHint);
-        this->show();
-    }
-    else
-    {
-        ui->cale->setAttribute(Qt::WA_TransparentForMouseEvents,false);
-        setWindowFlags(windowFlags() & ~Qt::FramelessWindowHint);
-        this->show();
-    }
-}
-*/
 
 void Widget::on_radioButton_toggled(bool checked)
 {
     if(checked)
     {
         ui->calendar->setAttribute(Qt::WA_TransparentForMouseEvents,true);
+        ui->calendar->setAttribute (Qt::WA_TranslucentBackground);
         setWindowFlags(Qt::FramelessWindowHint);
         this->show();
     }
