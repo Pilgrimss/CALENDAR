@@ -25,7 +25,7 @@
         <enum>QTabWidget::Rounded</enum>
        </property>
        <property name="currentIndex">
-        <number>0</number>
+        <number>3</number>
        </property>
        <property name="elideMode">
         <enum>Qt::ElideLeft</enum>
@@ -223,10 +223,16 @@
            <item>
             <widget class="QDateEdit" name="dateEdit">
              <property name="displayFormat">
-              <string>yy/M/d</string>
+              <string>yyyy/M/d</string>
+             </property>
+             <property name="calendarPopup">
+              <bool>true</bool>
              </property>
              <property name="currentSectionIndex">
               <number>0</number>
+             </property>
+             <property name="timeSpec">
+              <enum>Qt::LocalTime</enum>
              </property>
              <property name="date">
               <date>

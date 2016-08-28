@@ -318,7 +318,7 @@ void Widget::on_comboBox_currentIndexChanged(int index)
 
 void Widget::on_dateEdit_dateChanged(const QDate &date)
 {
-    ui->calendar->setDate (date);
+    ui->calendar->setSelectedDate (date);
 }
 
 extern int lan_config;
